@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="412dp"
+    android:layout_height="915dp"
+    android:background="@color/ColorFondo"
+    tools:context=".Bienvenido">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="128dp"
+        android:layout_marginTop="216dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/guy" />
+
+    <TextView
+        android:id="@+id/tvGames"
+        android:layout_width="264dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="376dp"
+        android:fontFamily="@font/poppins_thin"
+        android:text="Te damos la bienvenida a"
+        android:textColor="@color/ColorFuentes"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="116dp"
+        android:layout_marginTop="420dp"
+        android:background="@color/Urizar"
+        android:fontFamily="@font/bebas_neue"
+        android:text="URIZAR"
+        android:textColor="@color/ColorFuentes"
+        android:textSize="34sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="420dp"
+        android:layout_marginEnd="116dp"
+        android:background="@color/Games"
+        android:fontFamily="@font/bebas_neue"
+        android:text="GAMES"
+        android:textColor="@color/ColorFuentes"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="204dp"
+        android:layout_marginTop="420dp"
+        android:fontFamily="@font/bebas_neue"
+        android:text="-"
+        android:textColor="@color/ColorFuentes"
+        android:textSize="34sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="656dp"
+        android:backgroundTint="@color/white"
+        android:fontFamily="@font/poppins_thin"
+        android:onClick="tercera"
+        android:text="Iniciar sesión"
+        android:textColor="@color/ColorFondo"
+        app:cornerRadius="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="608dp"
+        android:backgroundTint="@color/Transparente"
+        android:fontFamily="@font/poppins_thin"
+        android:text="Acerca de la cuenta Urizar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

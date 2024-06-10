@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="ColorFondo">#303030</color>
+    <color name="ColorFuentes"> #e5e5e5 </color>
+    <color name="ColorFuentes2"> #afb0b1 </color>
+    <color name="Transparente">#00FF0000</color>
+    <color name="fondo"> #717477 </color>
+
+    <color name="Urizar">  #e84534  </color>
+    <color name="Games"> #3478e8  </color>
+
+    <color name="ColorUno">#303030</color>
+    <color name="ColorDos">#424949</color>
+    <color name="ColorTres">#778899 </color>
+</resources>
