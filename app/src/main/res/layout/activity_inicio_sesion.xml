@@ -167,6 +167,7 @@
         android:layout_marginEnd="60dp"
         android:background="@color/Transparente"
         android:fontFamily="@font/poppins_thin"
+        android:onClick="registro"
         android:text="CREAR CUENTA"
         android:textColor="@color/ColorFuentes"
         android:textSize="16sp"

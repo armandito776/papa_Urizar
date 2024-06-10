@@ -13,7 +13,7 @@ public class Registro extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pantalla_carga);
+        setContentView(R.layout.activity_crear_cuenta);
 
         edUsuario=(EditText) findViewById(R.id.edUsuario);
         edPass=(EditText) findViewById(R.id.edPass);
