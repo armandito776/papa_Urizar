@@ -12,18 +12,31 @@ import android.widget.ImageView;
 public class Biblioteca extends AppCompatActivity {
     ImageView imgBtnBarra;
     ConstraintLayout barraLateral_ContenedorPrincipal;
+
+    boolean isBarActive = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_biblioteca);
         imgBtnBarra = (ImageView) findViewById(R.id.imgBarra);
         barraLateral_ContenedorPrincipal = (ConstraintLayout) findViewById(R.id.barraLateral_ContenededorPrincipal);
-        barraLateral_ContenedorPrincipal.setMaxWidth(122);
 
     }
 
     public void crearBarraLateral(View view)
     {
+        if (isBarActive)
+        {
+            barraLateral_ContenedorPrincipal.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.scale_to_left));
+            barraLateral_ContenedorPrincipal.setVisibility(View.GONE);
+            isBarActive = false;
+            return;
+        }
+
+        barraLateral_ContenedorPrincipal.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.scale_to_right));
+        barraLateral_ContenedorPrincipal.setVisibility(View.VISIBLE);
+        isBarActive = true;
 
     }
 }

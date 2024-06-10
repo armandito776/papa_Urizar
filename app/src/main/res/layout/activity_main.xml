@@ -12,25 +12,13 @@
         android:layout_width="409dp"
         android:layout_height="56dp"
         android:background="@drawable/headergradient"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
-
-        <ImageView
-            android:id="@+id/imgLogo"
-            android:layout_width="60dp"
-            android:layout_height="match_parent"
-            android:scaleType="fitCenter"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/tvUrizarGames"
-            app:layout_constraintHorizontal_bias="0.005"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0"
-            app:srcCompat="@drawable/logourizar" />
 
         <TextView
             android:id="@+id/tvUrizarGames"
@@ -44,28 +32,28 @@
             android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.253"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.518" />
 
         <ImageView
-            android:id="@+id/imgLibreria"
+            android:id="@+id/imgLogo"
             android:layout_width="60dp"
             android:layout_height="match_parent"
-            android:scaleType="centerCrop"
+            android:scaleType="fitCenter"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.892"
+            app:layout_constraintHorizontal_bias="0.9"
             app:layout_constraintStart_toEndOf="@+id/tvUrizarGames"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
-            app:srcCompat="@drawable/library" />
+            app:srcCompat="@drawable/logourizar" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ScrollView
         android:layout_width="409dp"
         android:layout_height="0dp"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -82,15 +70,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/bebas_neue"
+                android:letterSpacing="0.4"
                 android:text="SACA TU MODO GAMER"
-                android:textColor="@color/white"
-                android:textSize="22sp"
+                android:textColor="#595656"
+                android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintHorizontal_bias="0.31"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.024" />
+                app:layout_constraintVertical_bias="0.034" />
 
             <TextView
                 android:id="@+id/tvAventura"
@@ -225,19 +214,6 @@
                 app:layout_constraintTop_toBottomOf="@+id/tvAventura">
 
                 <ImageView
-                    android:id="@+id/imageView"
-                    android:layout_width="144dp"
-                    android:layout_height="0dp"
-                    android:alpha="0"
-                    android:scaleType="centerCrop"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="1.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="1.0" />
-
-                <ImageView
                     android:id="@+id/imgAventuraContainer"
                     android:layout_width="144dp"
                     android:layout_height="match_parent"
@@ -251,10 +227,60 @@
                     app:layout_constraintVertical_bias="0.0" />
 
                 <ImageView
+                    android:id="@+id/imgAventura4"
+                    android:layout_width="144dp"
+                    android:layout_height="0dp"
+                    android:alpha="1"
+                    android:contentDescription="Aventura4"
+                    android:scaleType="centerCrop"
+                    android:visibility="invisible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.456"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0"
+                    app:srcCompat="@drawable/tearsofthekingdomaventura" />
+
+                <ImageView
+                    android:id="@+id/imgAventura3"
+                    android:layout_width="144dp"
+                    android:layout_height="0dp"
+                    android:alpha="1"
+                    android:contentDescription="Aventura3"
+                    android:scaleType="centerCrop"
+                    android:visibility="invisible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.456"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0"
+                    app:srcCompat="@drawable/hogwartsaventura" />
+
+                <ImageView
+                    android:id="@+id/imgAventura2"
+                    android:layout_width="144dp"
+                    android:layout_height="0dp"
+                    android:alpha="1"
+                    android:contentDescription="Aventura2"
+                    android:scaleType="centerCrop"
+                    android:visibility="invisible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.456"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0"
+                    app:srcCompat="@drawable/godofwaraventura" />
+
+                <ImageView
                     android:id="@+id/imgAventura1"
                     android:layout_width="144dp"
                     android:layout_height="match_parent"
+                    android:contentDescription="Aventura1"
                     android:scaleType="centerCrop"
+                    android:visibility="visible"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.458"
@@ -265,12 +291,12 @@
 
                 <TextView
                     android:id="@+id/tvGameTitleAventura"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="3dp"
-                    android:layout_marginEnd="83dp"
+                    android:layout_marginEnd="1dp"
                     android:fontFamily="@font/poppins_bold"
-                    android:text="TextView"
+                    android:text="The Legend Of Zelda: Breath Of The Wild"
                     android:textColor="@color/white"
                     android:textSize="12sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -282,12 +308,12 @@
 
                 <TextView
                     android:id="@+id/tvGamePriceAventura"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="93dp"
                     android:layout_marginEnd="1dp"
                     android:fontFamily="@font/poppins_medium"
-                    android:text="TextView"
+                    android:text="1100"
                     android:textColor="#30F88A"
                     android:textSize="10sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -298,7 +324,7 @@
                     app:layout_constraintVertical_bias="0.73" />
 
                 <TableLayout
-                    android:id="@+id/gamesTerrorTagsContainer"
+                    android:id="@+id/gamesAventuraTagsContainer"
                     android:layout_width="144dp"
                     android:layout_height="40dp"
                     android:textAlignment="center"
@@ -370,6 +396,7 @@
                     android:layout_marginTop="70dp"
                     android:layout_marginBottom="71dp"
                     android:background="@drawable/arrowbackground"
+                    android:onClick="rightArrowFunc"
                     android:scaleType="centerCrop"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -383,6 +410,7 @@
                     android:layout_width="47dp"
                     android:layout_height="67dp"
                     android:background="@drawable/arrowbackground"
+                    android:onClick="leftArrowFunc"
                     android:rotation="180"
                     android:scaleType="centerCrop"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -406,18 +434,6 @@
                 app:layout_constraintTop_toBottomOf="@+id/tvAccion">
 
                 <ImageView
-                    android:layout_width="144dp"
-                    android:layout_height="0dp"
-                    android:alpha="0"
-                    android:scaleType="centerCrop"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="1.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.0" />
-
-                <ImageView
                     android:id="@+id/imgAccionContainer"
                     android:layout_width="144dp"
                     android:layout_height="match_parent"
@@ -431,10 +447,60 @@
                     app:layout_constraintVertical_bias="0.0" />
 
                 <ImageView
+                    android:id="@+id/imgAccion4"
+                    android:layout_width="144dp"
+                    android:layout_height="0dp"
+                    android:alpha="1"
+                    android:contentDescription="Accion4"
+                    android:scaleType="centerCrop"
+                    android:visibility="invisible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.449"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0"
+                    app:srcCompat="@drawable/detroitaccion" />
+
+                <ImageView
+                    android:id="@+id/imgAccion3"
+                    android:layout_width="144dp"
+                    android:layout_height="0dp"
+                    android:alpha="1"
+                    android:contentDescription="Accion3"
+                    android:scaleType="centerCrop"
+                    android:visibility="invisible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.449"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0"
+                    app:srcCompat="@drawable/dl2accion" />
+
+                <ImageView
+                    android:id="@+id/imgAccion2"
+                    android:layout_width="144dp"
+                    android:layout_height="0dp"
+                    android:alpha="1"
+                    android:contentDescription="Accion2"
+                    android:scaleType="centerCrop"
+                    android:visibility="invisible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.449"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0"
+                    app:srcCompat="@drawable/dmc5accion" />
+
+                <ImageView
                     android:id="@+id/imgAccion1"
                     android:layout_width="144dp"
                     android:layout_height="match_parent"
+                    android:contentDescription="Accion1"
                     android:scaleType="centerCrop"
+                    android:visibility="visible"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.458"
@@ -445,12 +511,12 @@
 
                 <TextView
                     android:id="@+id/tvGameTitleAccion"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="2dp"
                     android:layout_marginEnd="4dp"
                     android:fontFamily="@font/poppins_bold"
-                    android:text="TextView"
+                    android:text="Cyberpunk 2077"
                     android:textColor="@color/white"
                     android:textSize="12sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -462,11 +528,11 @@
 
                 <TextView
                     android:id="@+id/tvGamePriceAccion"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="93dp"
                     android:fontFamily="@font/poppins_medium"
-                    android:text="TextView"
+                    android:text="800"
                     android:textColor="#30F88A"
                     android:textSize="10sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -547,6 +613,7 @@
                     android:layout_marginTop="70dp"
                     android:layout_marginBottom="71dp"
                     android:background="@drawable/arrowbackground"
+                    android:onClick="rightArrowFunc"
                     android:scaleType="centerCrop"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -560,6 +627,7 @@
                     android:layout_width="47dp"
                     android:layout_height="67dp"
                     android:background="@drawable/arrowbackground"
+                    android:onClick="leftArrowFunc"
                     android:rotation="180"
                     android:scaleType="centerCrop"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -583,19 +651,6 @@
                 app:layout_constraintTop_toBottomOf="@+id/tvTerror">
 
                 <ImageView
-                    android:id="@+id/imageView2"
-                    android:layout_width="144dp"
-                    android:layout_height="0dp"
-                    android:alpha="0"
-                    android:scaleType="centerCrop"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="1.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.0" />
-
-                <ImageView
                     android:id="@+id/imgTerrorContainer"
                     android:layout_width="144dp"
                     android:layout_height="match_parent"
@@ -609,10 +664,60 @@
                     app:layout_constraintVertical_bias="0.0" />
 
                 <ImageView
+                    android:id="@+id/imgTerror4"
+                    android:layout_width="144dp"
+                    android:layout_height="0dp"
+                    android:alpha="1"
+                    android:contentDescription="Terror4"
+                    android:scaleType="centerCrop"
+                    android:visibility="invisible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.46"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0"
+                    app:srcCompat="@drawable/kf2accion" />
+
+                <ImageView
+                    android:id="@+id/imgTerror3"
+                    android:layout_width="144dp"
+                    android:layout_height="0dp"
+                    android:alpha="1"
+                    android:contentDescription="Terror3"
+                    android:scaleType="centerCrop"
+                    android:visibility="invisible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.46"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0"
+                    app:srcCompat="@drawable/re7terror" />
+
+                <ImageView
+                    android:id="@+id/imgTerror2"
+                    android:layout_width="144dp"
+                    android:layout_height="0dp"
+                    android:alpha="1"
+                    android:contentDescription="Terror2"
+                    android:scaleType="centerCrop"
+                    android:visibility="invisible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.46"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0"
+                    app:srcCompat="@drawable/amnessiaterror" />
+
+                <ImageView
                     android:id="@+id/imgTerror1"
                     android:layout_width="144dp"
                     android:layout_height="match_parent"
+                    android:contentDescription="Terror1"
                     android:scaleType="centerCrop"
+                    android:visibility="visible"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.458"
@@ -623,12 +728,12 @@
 
                 <TextView
                     android:id="@+id/tvGameTitleTerror"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="3dp"
                     android:layout_marginEnd="3dp"
                     android:fontFamily="@font/poppins_bold"
-                    android:text="TextView"
+                    android:text="PT: Silent Hill"
                     android:textColor="@color/white"
                     android:textSize="12sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -640,11 +745,11 @@
 
                 <TextView
                     android:id="@+id/tvGamePriceTerror"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="93dp"
                     android:fontFamily="@font/poppins_medium"
-                    android:text="TextView"
+                    android:text="0"
                     android:textColor="#30F88A"
                     android:textSize="10sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -655,7 +760,7 @@
                     app:layout_constraintVertical_bias="0.744" />
 
                 <TableLayout
-                    android:id="@+id/gamesAventuraTagsContainer"
+                    android:id="@+id/gamesTerrorTagsContainer"
                     android:layout_width="144dp"
                     android:layout_height="40dp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -724,6 +829,7 @@
                     android:layout_marginTop="70dp"
                     android:layout_marginBottom="71dp"
                     android:background="@drawable/arrowbackground"
+                    android:onClick="rightArrowFunc"
                     android:scaleType="centerCrop"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -737,6 +843,7 @@
                     android:layout_width="47dp"
                     android:layout_height="67dp"
                     android:background="@drawable/arrowbackground"
+                    android:onClick="leftArrowFunc"
                     android:rotation="180"
                     android:scaleType="centerCrop"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -760,18 +867,6 @@
                 app:layout_constraintTop_toBottomOf="@+id/tvEstrategia">
 
                 <ImageView
-                    android:layout_width="144dp"
-                    android:layout_height="0dp"
-                    android:alpha="0"
-                    android:scaleType="centerCrop"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="1.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.0" />
-
-                <ImageView
                     android:id="@+id/imgEstrategiaContainer"
                     android:layout_width="144dp"
                     android:layout_height="match_parent"
@@ -785,10 +880,60 @@
                     app:layout_constraintVertical_bias="0.0" />
 
                 <ImageView
+                    android:id="@+id/imgEstrategia4"
+                    android:layout_width="144dp"
+                    android:layout_height="0dp"
+                    android:alpha="1"
+                    android:contentDescription="Estrategia4"
+                    android:scaleType="centerCrop"
+                    android:visibility="invisible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.46"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0"
+                    app:srcCompat="@drawable/valorantestrategia" />
+
+                <ImageView
+                    android:id="@+id/imgEstrategia3"
+                    android:layout_width="144dp"
+                    android:layout_height="0dp"
+                    android:alpha="1"
+                    android:contentDescription="Estrategia3"
+                    android:scaleType="centerCrop"
+                    android:visibility="invisible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.46"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0"
+                    app:srcCompat="@drawable/ttestrategia" />
+
+                <ImageView
+                    android:id="@+id/imgEstrategia2"
+                    android:layout_width="144dp"
+                    android:layout_height="0dp"
+                    android:alpha="1"
+                    android:contentDescription="Estrategia2"
+                    android:scaleType="centerCrop"
+                    android:visibility="invisible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.46"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0"
+                    app:srcCompat="@drawable/tf2estrategia" />
+
+                <ImageView
                     android:id="@+id/imgEstrategia1"
                     android:layout_width="144dp"
                     android:layout_height="match_parent"
+                    android:contentDescription="Estrategia1"
                     android:scaleType="centerCrop"
+                    android:visibility="visible"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.458"
@@ -799,12 +944,12 @@
 
                 <TextView
                     android:id="@+id/tvGameTitleEstrategia"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="3dp"
                     android:layout_marginEnd="3dp"
                     android:fontFamily="@font/poppins_bold"
-                    android:text="TextView"
+                    android:text="League Of Legends"
                     android:textColor="@color/white"
                     android:textSize="12sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -816,11 +961,11 @@
 
                 <TextView
                     android:id="@+id/tvGamePriceEstrategia"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="93dp"
                     android:fontFamily="@font/poppins_medium"
-                    android:text="TextView"
+                    android:text="0"
                     android:textColor="#30F88A"
                     android:textSize="10sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -901,6 +1046,7 @@
                     android:layout_marginTop="70dp"
                     android:layout_marginBottom="71dp"
                     android:background="@drawable/arrowbackground"
+                    android:onClick="rightArrowFunc"
                     android:scaleType="centerCrop"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -914,6 +1060,7 @@
                     android:layout_width="47dp"
                     android:layout_height="67dp"
                     android:background="@drawable/arrowbackground"
+                    android:onClick="leftArrowFunc"
                     android:rotation="180"
                     android:scaleType="centerCrop"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -927,4 +1074,220 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/barraLateral_ContenededorPrincipal"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#242629"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout4"
+                android:layout_width="0dp"
+                android:layout_height="125dp"
+                android:alpha="1"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0">
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="74dp"
+                    android:layout_height="70dp"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.105"
+                    app:srcCompat="@drawable/logourizar" />
+
+                <TextView
+                    android:id="@+id/textView11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="URIZAR - GAMES"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView3"
+                    app:layout_constraintVertical_bias="0.347" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.248">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout5"
+                    android:layout_width="0dp"
+                    android:layout_height="55dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/imgBtnTienda"
+                        android:layout_width="53dp"
+                        android:layout_height="49dp"
+                        android:scaleType="centerCrop"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.4"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textView15"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TIENDA"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.08"
+                        app:layout_constraintStart_toEndOf="@+id/imgBtnTienda"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout8"
+                    android:layout_width="0dp"
+                    android:layout_height="55dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout5">
+
+                    <ImageView
+                        android:id="@+id/imgBtnLibreria"
+                        android:layout_width="53dp"
+                        android:layout_height="49dp"
+                        android:scaleType="centerCrop"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.4"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textView16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="LIBRERIA"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.08"
+                        app:layout_constraintStart_toEndOf="@+id/imgBtnLibreria"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout6"
+                    android:layout_width="0dp"
+                    android:layout_height="55dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout8">
+
+                    <ImageView
+                        android:id="@+id/imgBtnInicioSesion"
+                        android:layout_width="53dp"
+                        android:layout_height="49dp"
+                        android:scaleType="centerCrop"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.4"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textView17"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="INICIO DE SESION"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.11"
+                        app:layout_constraintStart_toEndOf="@+id/imgBtnInicioSesion"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout7"
+                    android:layout_width="411dp"
+                    android:layout_height="55dp"
+                    android:layout_marginTop="55dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/constraintLayout6">
+
+                    <ImageView
+                        android:id="@+id/imgBtnRegistro"
+                        android:layout_width="53dp"
+                        android:layout_height="49dp"
+                        android:scaleType="centerCrop"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.4"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textView18"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="REGISTRO"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.087"
+                        app:layout_constraintStart_toEndOf="@+id/imgBtnRegistro"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/imgBarra2"
+        android:layout_width="36dp"
+        android:layout_height="29dp"
+        android:background="@drawable/headergradient"
+        android:backgroundTintMode="multiply"
+        android:onClick="crearBarraLateral"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="@+id/constraintLayout"
+        app:layout_constraintEnd_toEndOf="@+id/constraintLayout"
+        app:layout_constraintHorizontal_bias="0.02"
+        app:layout_constraintStart_toStartOf="@+id/constraintLayout"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/bar" />
 </androidx.constraintlayout.widget.ConstraintLayout>
