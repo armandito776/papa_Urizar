@@ -50,6 +50,7 @@ public class Registro extends AppCompatActivity {
 
         try (Cursor Query_check = Bd.rawQuery(check_if_user_exists, null)) {
             if (Query_check.moveToFirst()) {
+                Toast.makeText(this, "El usuario: " + etEmail.getText() + " Ya existe", Toast.LENGTH_LONG).show();
                 return;
             }
         }
