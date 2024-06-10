@@ -3,29 +3,41 @@ package com.example.proyectourizar_games;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.AnimationUtils;
+import android.widget.EditText;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Inicio_sesion extends AppCompatActivity {
 
     boolean isBarActive = false;
     ConstraintLayout barraLateral_ContenedorPrincipal;
+    EditText usuario, contraseña;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio_sesion);
         barraLateral_ContenedorPrincipal = (ConstraintLayout) findViewById(R.id.barraLateral_ContenededorPrincipal);
+
+        usuario = (EditText) findViewById(R.id.etUsuario);
+        contraseña = (EditText) findViewById(R.id.etPassword);
+
     }
     public void registro(View v){
         Intent sig = new Intent(this, Registro.class);
 
         startActivity(sig);
     }
+
 
     public void crearBarraLateral(View view)
     {

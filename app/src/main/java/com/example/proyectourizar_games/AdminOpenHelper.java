@@ -15,14 +15,14 @@ public class AdminOpenHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE if EXISTS Games");
         db.execSQL("DROP TABLE if EXISTS selectedGames");
         db.execSQL("DROP TABLE if EXISTS gameTags");
-        db.execSQL("CREATE TABLE Usuarios(id INTEGER PRIMARY KEY, user TEXT, pass TEXT)");
+        db.execSQL("CREATE TABLE Usuarios(user TEXT, pass TEXT, email TEXT PRIMARY KEY)");
         db.execSQL("CREATE TABLE Games(idGame TEXT PRIMARY KEY, imgGame INTEGER, gameName TEXT, genreGame TEXT, price DOUBLE)");
         db.execSQL
                 (
                 "CREATE TABLE " +
-                "selectedGames(idUsuario INTEGER NOT NULL, " +
-                "idGame TEXT NOT NULL, " + "FOREIGN KEY(idUsuario) REFERENCES Usuarios(id), " +
-                "FOREIGN KEY(idGame) REFERENCES Games(id)," + "CONSTRAINT PK_user_selectedGames PRIMARY KEY (idGame, idUsuario))"
+                "selectedGames(userEmail TEXT NOT NULL, " +
+                "idGame TEXT NOT NULL, " + "FOREIGN KEY(userEmail) REFERENCES Usuarios(email), " +
+                "FOREIGN KEY(idGame) REFERENCES Games(id)," + "CONSTRAINT PK_user_selectedGames PRIMARY KEY (idGame, userEmail))"
                 );
         db.execSQL
                 (
@@ -47,13 +47,14 @@ public class AdminOpenHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE if EXISTS Games");
         db.execSQL("DROP TABLE if EXISTS selectedGames");
         db.execSQL("DROP TABLE if EXISTS gameTags");
+        db.execSQL("CREATE TABLE Usuarios(user TEXT, pass TEXT, email TEXT PRIMARY KEY)");
         db.execSQL("CREATE TABLE Games(idGame TEXT PRIMARY KEY, imgGame INTEGER, gameName TEXT, genreGame TEXT, price DOUBLE)");
         db.execSQL
                 (
                         "CREATE TABLE " +
-                                "selectedGames(idUsuario INTEGER NOT NULL, " +
-                                "idGame TEXT NOT NULL, " + "FOREIGN KEY(idUsuario) REFERENCES Usuarios(id), " +
-                                "FOREIGN KEY(idGame) REFERENCES Games(id)," + "CONSTRAINT PK_user_selectedGames PRIMARY KEY (idGame, idUsuario))"
+                                "selectedGames(userEmail TEXT NOT NULL, " +
+                                "idGame TEXT NOT NULL, " + "FOREIGN KEY(userEmail) REFERENCES Usuarios(email), " +
+                                "FOREIGN KEY(idGame) REFERENCES Games(id)," + "CONSTRAINT PK_user_selectedGames PRIMARY KEY (idGame, userEmail))"
                 );
         db.execSQL
                 (
@@ -65,7 +66,7 @@ public class AdminOpenHelper extends SQLiteOpenHelper {
                 );
         db.execSQL
                 ("CREATE TABLE " +
-                        "gameDevelopers(idGame TEXT NOT NULL, " +
+                        "gameDevelopers(idGame INTEGER NOT NULL, " +
                         "idDeveloper INTEGER NOT NULL, Developer TEXT, " +
                         "FOREIGN KEY(idGame) REFERENCES Games(idGame), " +
                         "CONSTRAINT PK_game_developers PRIMARY KEY(idGame, idDeveloper))"
