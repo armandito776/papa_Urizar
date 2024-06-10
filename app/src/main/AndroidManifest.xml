@@ -16,10 +16,16 @@
             android:name=".Inicio_sesion"
             android:exported="false" />
         <activity
+            android:name=".Registro"
+            android:exported="false" />
+        <activity
+            android:name=".Usuario"
+            android:exported="false" />
+        <activity
             android:name=".Bienvenido"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Pantalla_carga"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

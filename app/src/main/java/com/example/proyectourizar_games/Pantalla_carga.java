@@ -10,12 +10,12 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class Pantalla_carga extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_pantalla_carga);
 
         Animation animacion1 = AnimationUtils.loadAnimation(this,R.anim.desplazamiento_arriba);
         Animation animacion2 = AnimationUtils.loadAnimation(this,R.anim.desplazamiento_abajo);
@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         tvGames.setAnimation(animacion2);
         tvUrizar.setAnimation(animacion2);
         tvGuion.setAnimation(animacion2);
+
         tvBy.setAnimation(animacion2);
         tvUrizars.setAnimation(animacion2);
         imageLogo.setAnimation(animacion1);
@@ -37,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(MainActivity.this,Bienvenido.class);
+                Intent intent = new Intent(Pantalla_carga.this,Bienvenido.class);
                 startActivity(intent);
                 finish();
             }
