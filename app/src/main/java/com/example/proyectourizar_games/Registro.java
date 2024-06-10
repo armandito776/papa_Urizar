@@ -1,6 +1,8 @@
 package com.example.proyectourizar_games;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,6 +21,12 @@ public class Registro extends AppCompatActivity {
         edPass=(EditText) findViewById(R.id.edPass);
         edEmail=(EditText) findViewById(R.id.edEmail);
 
+    }
+
+    public void inicio(View v){
+        Intent sig = new Intent(this, Inicio_sesion.class);
+
+        startActivity(sig);
     }
     /*
         public void alta(View v){
@@ -46,6 +54,7 @@ public class Registro extends AppCompatActivity {
             Toast.makeText(this,"DATOS INGRESADOS",Toast.LENGTH_LONG).show();
         }
         */
+
 
         }
 
