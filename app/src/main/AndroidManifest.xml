@@ -22,6 +22,12 @@
             android:name=".Usuario"
             android:exported="false" />
         <activity
+            android:name=".Tienda"
+            android:exported="false" />
+        <activity
+            android:name=".Biblioteca"
+            android:exported="false" />
+        <activity
             android:name=".Bienvenido"
             android:exported="false" />
         <activity
