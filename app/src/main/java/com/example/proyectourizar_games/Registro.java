@@ -3,12 +3,16 @@ package com.example.proyectourizar_games;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.AnimationUtils;
 import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 public class Registro extends AppCompatActivity {
 
+    boolean isBarActive = false;
+    ConstraintLayout barraLateral_ContenedorPrincipal;
     EditText edUsuario, edPass, edEmail;
 
 
@@ -16,6 +20,8 @@ public class Registro extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crear_cuenta);
+
+        barraLateral_ContenedorPrincipal = (ConstraintLayout) findViewById(R.id.barraLateral_ContenededorPrincipal);
 
         edUsuario=(EditText) findViewById(R.id.edUsuario);
         edPass=(EditText) findViewById(R.id.edPass);
@@ -27,6 +33,22 @@ public class Registro extends AppCompatActivity {
         Intent sig = new Intent(this, Inicio_sesion.class);
 
         startActivity(sig);
+    }
+
+    public void crearBarraLateral(View view)
+    {
+        if (isBarActive)
+        {
+            barraLateral_ContenedorPrincipal.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.scale_to_left));
+            barraLateral_ContenedorPrincipal.setVisibility(View.GONE);
+            isBarActive = false;
+            return;
+        }
+
+        barraLateral_ContenedorPrincipal.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.scale_to_right));
+        barraLateral_ContenedorPrincipal.setVisibility(View.VISIBLE);
+        isBarActive = true;
+
     }
     /*
         public void alta(View v){

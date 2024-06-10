@@ -23,7 +23,7 @@
         android:layout_height="33dp"
         android:layout_marginStart="84dp"
         android:layout_marginTop="376dp"
-        android:fontFamily="@font/poppins_thin"
+        android:fontFamily="@font/roboto_medium"
         android:text="Te damos la bienvenida a"
         android:textColor="@color/ColorFuentes"
         android:textSize="20sp"
