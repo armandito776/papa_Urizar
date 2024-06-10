@@ -95,6 +95,7 @@
         android:backgroundTint="@color/Transparente"
         android:fontFamily="@font/poppins_thin"
         android:text="Acerca de la cuenta Urizar"
+        android:textColor="@color/ColorFuentes"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

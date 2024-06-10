@@ -11,8 +11,8 @@
         android:id="@+id/imageLogo"
         android:layout_width="250dp"
         android:layout_height="250dp"
-        android:layout_marginStart="80dp"
-        android:layout_marginBottom="436dp"
+        android:layout_marginStart="96dp"
+        android:layout_marginBottom="432dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/guy" />
@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="600dp"
-        android:layout_marginEnd="120dp"
+        android:layout_marginEnd="104dp"
         android:background="@color/Games"
         android:fontFamily="@font/bebas_neue"
         android:text="GAMES"
@@ -32,40 +32,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvUrizar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="96dp"
-        android:layout_marginTop="600dp"
-        android:background="@color/Urizar"
-        android:fontFamily="@font/bebas_neue"
-        android:text="URIZAR"
-        android:textColor="@color/ColorFuentes"
-        android:textSize="34sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
         android:id="@+id/tvGuion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="192dp"
+        android:layout_marginStart="208dp"
         android:layout_marginTop="600dp"
         android:fontFamily="@font/bebas_neue"
         android:text="-"
-        android:textColor="@color/ColorFuentes"
-        android:textSize="34sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tvBy"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="176dp"
-        android:layout_marginTop="680dp"
-        android:fontFamily="@font/poppins_thin"
-        android:text="By"
         android:textColor="@color/ColorFuentes"
         android:textSize="34sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -76,12 +49,39 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="720dp"
-        android:layout_marginEnd="164dp"
+        android:layout_marginEnd="148dp"
         android:fontFamily="@font/poppins_thin"
         android:text="Urizars"
         android:textColor="@color/ColorFuentes"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvBy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="192dp"
+        android:layout_marginTop="680dp"
+        android:fontFamily="@font/poppins_thin"
+        android:text="By"
+        android:textColor="@color/ColorFuentes"
+        android:textSize="34sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvUrizar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="112dp"
+        android:layout_marginTop="600dp"
+        android:background="@color/Urizar"
+        android:fontFamily="@font/bebas_neue"
+        android:text="URIZAR"
+        android:textColor="@color/ColorFuentes"
+        android:textSize="34sp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
