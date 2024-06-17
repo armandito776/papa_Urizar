@@ -62,7 +62,7 @@ public class Inicio_sesion extends AppCompatActivity {
         if (usuario.getText().toString().isEmpty() || contraseña.getText().toString().isEmpty()) { return; }
 
         String check_if_user_exists = "SELECT user, pass, email FROM Usuarios WHERE user="
-                + "'" + usuario.getText().toString() +"' AND pass=" + "'" + contraseña.getText().toString() +"'";
+                + "'" + usuario.getText().toString().trim() +"' AND pass=" + "'" + contraseña.getText().toString() +"'";
 
         try (Cursor Query_check = Bd.rawQuery(check_if_user_exists, null)) {
             if (!Query_check.moveToFirst()) {
@@ -71,6 +71,7 @@ public class Inicio_sesion extends AppCompatActivity {
             }
             Intent tienda_pantalla = new Intent(this, Tienda.class);
             tienda_pantalla.putExtra("userEmail", Query_check.getString(2));
+            tienda_pantalla.putExtra("userName", Query_check.getString(0));
             startActivity(tienda_pantalla);
         }
     }

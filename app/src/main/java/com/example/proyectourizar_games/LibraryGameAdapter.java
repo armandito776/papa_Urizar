@@ -77,9 +77,9 @@ public class LibraryGameAdapter extends BaseAdapter {
         game_Name.setText(game_Names.get(position_));
         game_Genre.setText(game_Genres.get(position_));
 
-        game_Price.setText(game_Prices.get(position_)+"MXN");
-        tv_general_Reviews.setText(tv_general_Reviews.getText() + " " + general_Reviews.get(position_));
-        tv_all_Reviews.setText(tv_all_Reviews.getText() + " " +all_Reviews.get(position_));
+        game_Price.setText(String.format("%sMXN", game_Prices.get(position_)));
+        tv_general_Reviews.setText(String.format("%s %s", tv_general_Reviews.getText(), general_Reviews.get(position_)));
+        tv_all_Reviews.setText(String.format("%s %s", tv_all_Reviews.getText(), all_Reviews.get(position_)));
 
         Tag1.setText(game_Tags.get(position_).get(0));
         Tag2.setText(game_Tags.get(position_).get(1));

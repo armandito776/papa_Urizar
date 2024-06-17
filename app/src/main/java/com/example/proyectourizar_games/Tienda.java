@@ -28,22 +28,23 @@ public class Tienda extends AppCompatActivity {
     TableLayout tableLayout_class;
     ScrollView scrollGames;
     TextView textView_class;
-
     int imageCounter = 3;
     boolean isBarActive = false;
-    String userEmail;
+    String userEmail, userName;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tienda);
         userEmail = getIntent().getStringExtra("userEmail");
+        userName = getIntent().getStringExtra("userName");
         System.out.println(userEmail);
-        scrollGames = (ScrollView) findViewById(R.id.scrollGames);
-        imgBtnBarra = (ImageView) findViewById(R.id.imgBarra2);
-        barraLateral_ContenedorPrincipal = (ConstraintLayout) findViewById(R.id.barraLateral_ContenededorPrincipal);
-        tableLayout_class = (TableLayout) findViewById(R.id.gamesAventuraTagsContainer);
-        textView_class = (TextView) findViewById(R.id.textView5);
+        scrollGames = findViewById(R.id.scrollGames);
+        imgBtnBarra = findViewById(R.id.imgBarra2);
+        barraLateral_ContenedorPrincipal = findViewById(R.id.barraLateral_ContenededorPrincipal);
+        tableLayout_class = findViewById(R.id.gamesAventuraTagsContainer);
+        textView_class = findViewById(R.id.tvWelcome);
 
+        textView_class.setText(String.format("%s : %s", textView_class.getText(), userName));
 
         if (userEmail.isEmpty()) {
             scrollGames.setVisibility(View.GONE);
@@ -264,6 +265,7 @@ public class Tienda extends AppCompatActivity {
         selectedGameData.put("idGame", idGame);
         dataBase.insert("selectedGames", null, selectedGameData);
         dataBase.close();
+        System.out.println(userEmail);
         Toast.makeText(this, "Juego Seleccionado", Toast.LENGTH_SHORT).show();
     }
 
@@ -506,6 +508,7 @@ public class Tienda extends AppCompatActivity {
     {
         Intent library_ = new Intent(this, Biblioteca.class);
         library_.putExtra("userEmail", userEmail);
+        library_.putExtra("userName", userName);
         startActivity(library_);
     }
 

@@ -71,7 +71,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/textView5"
+                android:id="@+id/tvWelcome"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/bebas_neue"
@@ -322,7 +322,7 @@
                     android:layout_marginStart="93dp"
                     android:layout_marginEnd="1dp"
                     android:fontFamily="@font/poppins_medium"
-                    android:text="1100"
+                    android:text="1100MXN"
                     android:textColor="#30F88A"
                     android:textSize="10sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -355,7 +355,7 @@
                             android:layout_height="match_parent"
                             android:background="@drawable/tagbackground"
                             android:fontFamily="@font/roboto_bold"
-                            android:text="Tag 1"
+                            android:text="Juego De Rol"
                             android:textColor="@color/white"
                             android:textSize="10sp" />
 
@@ -365,7 +365,7 @@
                             android:layout_height="match_parent"
                             android:background="@drawable/tagbackground"
                             android:fontFamily="@font/roboto_bold"
-                            android:text="Tag 2"
+                            android:text="Mundo Abierto"
                             android:textColor="@color/white"
                             android:textSize="10sp" />
                     </TableRow>
@@ -380,7 +380,7 @@
                             android:layout_height="match_parent"
                             android:background="@drawable/tagbackground"
                             android:fontFamily="@font/roboto_bold"
-                            android:text="Tag 3"
+                            android:text="Atmosferico"
                             android:textColor="@color/white"
                             android:textSize="10sp" />
 
@@ -390,7 +390,7 @@
                             android:layout_height="match_parent"
                             android:background="@drawable/tagbackground"
                             android:fontFamily="@font/roboto_bold"
-                            android:text="Tag 4"
+                            android:text="Tercera Persona"
                             android:textColor="@color/white"
                             android:textSize="10sp" />
 
@@ -546,7 +546,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="93dp"
                     android:fontFamily="@font/poppins_medium"
-                    android:text="800"
+                    android:text="800MXN"
                     android:textColor="#30F88A"
                     android:textSize="10sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -577,7 +577,7 @@
                             android:layout_height="match_parent"
                             android:background="@drawable/tagbackground"
                             android:fontFamily="@font/roboto_bold"
-                            android:text="Tag 1"
+                            android:text="Desnudos"
                             android:textColor="@color/white"
                             android:textSize="10sp" />
 
@@ -587,7 +587,7 @@
                             android:layout_height="match_parent"
                             android:background="@drawable/tagbackground"
                             android:fontFamily="@font/roboto_bold"
-                            android:text="Tag 2"
+                            android:text="Primera Persona"
                             android:textColor="@color/white"
                             android:textSize="10sp" />
                     </TableRow>
@@ -602,7 +602,7 @@
                             android:layout_height="match_parent"
                             android:background="@drawable/tagbackground"
                             android:fontFamily="@font/roboto_bold"
-                            android:text="Tag 3"
+                            android:text="Mundo Abierto"
                             android:textColor="@color/white"
                             android:textSize="10sp" />
 
@@ -612,7 +612,7 @@
                             android:layout_height="match_parent"
                             android:background="@drawable/tagbackground"
                             android:fontFamily="@font/roboto_bold"
-                            android:text="Tag 4"
+                            android:text="Violento"
                             android:textColor="@color/white"
                             android:textSize="10sp" />
 
@@ -768,7 +768,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="93dp"
                     android:fontFamily="@font/poppins_medium"
-                    android:text="0"
+                    android:text="0MXN"
                     android:textColor="#30F88A"
                     android:textSize="10sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -799,7 +799,7 @@
                             android:layout_height="match_parent"
                             android:background="@drawable/tagbackground"
                             android:fontFamily="@font/roboto_bold"
-                            android:text="Tag 1"
+                            android:text="Primera Persona"
                             android:textColor="@color/white"
                             android:textSize="10sp" />
 
@@ -809,7 +809,7 @@
                             android:layout_height="match_parent"
                             android:background="@drawable/tagbackground"
                             android:fontFamily="@font/roboto_bold"
-                            android:text="Tag 2"
+                            android:text="Horror"
                             android:textColor="@color/white"
                             android:textSize="10sp" />
                     </TableRow>
@@ -824,7 +824,7 @@
                             android:layout_height="match_parent"
                             android:background="@drawable/tagbackground"
                             android:fontFamily="@font/roboto_bold"
-                            android:text="Tag 3"
+                            android:text="Violento"
                             android:textColor="@color/white"
                             android:textSize="10sp" />
 
@@ -834,7 +834,7 @@
                             android:layout_height="match_parent"
                             android:background="@drawable/tagbackground"
                             android:fontFamily="@font/roboto_bold"
-                            android:text="Tag 4"
+                            android:text="Terror Psicologico"
                             android:textColor="@color/white"
                             android:textSize="10sp" />
 
@@ -989,7 +989,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="93dp"
                     android:fontFamily="@font/poppins_medium"
-                    android:text="0"
+                    android:text="0MXN"
                     android:textColor="#30F88A"
                     android:textSize="10sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -1020,7 +1020,7 @@
                             android:layout_height="match_parent"
                             android:background="@drawable/tagbackground"
                             android:fontFamily="@font/roboto_bold"
-                            android:text="Tag 1"
+                            android:text="Competitivo"
                             android:textColor="@color/white"
                             android:textSize="10sp" />
 
@@ -1030,7 +1030,7 @@
                             android:layout_height="match_parent"
                             android:background="@drawable/tagbackground"
                             android:fontFamily="@font/roboto_bold"
-                            android:text="Tag 2"
+                            android:text="Juego De Rol"
                             android:textColor="@color/white"
                             android:textSize="10sp" />
                     </TableRow>
@@ -1045,7 +1045,7 @@
                             android:layout_height="match_parent"
                             android:background="@drawable/tagbackground"
                             android:fontFamily="@font/roboto_bold"
-                            android:text="Tag 3"
+                            android:text="Magico"
                             android:textColor="@color/white"
                             android:textSize="10sp" />
 
@@ -1055,7 +1055,7 @@
                             android:layout_height="match_parent"
                             android:background="@drawable/tagbackground"
                             android:fontFamily="@font/roboto_bold"
-                            android:text="Tag 4"
+                            android:text="MOBA"
                             android:textColor="@color/white"
                             android:textSize="10sp" />
 

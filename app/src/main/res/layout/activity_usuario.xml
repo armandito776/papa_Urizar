@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#303030"
+    android:background="@color/ColorFondo"
     tools:context=".Usuario">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -19,24 +19,31 @@
             android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
             android:fontFamily="@font/bebas_neue"
             android:text="Cuenta"
             android:textColor="#CAC0C0"
             android:textSize="35sp"
-            tools:layout_editor_absoluteX="115dp"
-            tools:layout_editor_absoluteY="51dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout2"
             android:layout_width="341dp"
             android:layout_height="0dp"
-            tools:layout_editor_absoluteX="6dp"
-            tools:layout_editor_absoluteY="154dp">
+            android:layout_marginTop="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView6">
 
             <ImageButton
-                android:id="@+id/imageButton12"
+                android:id="@+id/btnUsuario"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#303030"
+                android:backgroundTint="@color/ColorFondo"
+                android:contentDescription="usuario"
+                android:onClick="changeUsername"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -52,17 +59,17 @@
                 android:textSize="33sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.1"
-                app:layout_constraintStart_toEndOf="@+id/imageButton12"
+                app:layout_constraintStart_toEndOf="@+id/btnUsuario"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.25" />
 
             <EditText
                 android:id="@+id/etUsuario"
                 android:layout_width="228dp"
-                android:layout_height="47dp"
+                android:layout_height="50dp"
                 android:drawableTint="#CAC0C0"
                 android:ems="10"
+                android:fontFamily="@font/poppins_medium"
                 android:foregroundTint="#CAC0C0"
                 android:hint="_______________________________________________"
                 android:inputType="text"
@@ -70,69 +77,106 @@
                 android:textColorHighlight="#CAC0C0"
                 android:textColorHint="#CAC0C0"
                 android:textColorLink="#CAC0C0"
+                android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.56"
-                app:layout_constraintStart_toEndOf="@+id/imageButton12"
+                app:layout_constraintStart_toEndOf="@+id/btnUsuario"
                 app:layout_constraintTop_toBottomOf="@+id/textView7"
                 app:layout_constraintVertical_bias="0.026" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <ImageButton
-            android:id="@+id/imageButton8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#303030"
-            app:srcCompat="@drawable/engranaje"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="541dp" />
-
-        <ImageButton
-            android:id="@+id/imageButton3"
+            android:id="@+id/btnContraseña"
             android:layout_width="83dp"
             android:layout_height="79dp"
-            android:backgroundTint="#303030"
-            app:srcCompat="@drawable/estrella"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="312dp" />
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@color/ColorFondo"
+            android:contentDescription="contraseña"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"
+            app:srcCompat="@drawable/estrella" />
 
         <TextView
             android:id="@+id/textView8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:fontFamily="@font/bebas_neue"
-            android:text="Mi cuenta"
+            android:text="Contraseña"
             android:textColor="#CAC0C0"
             android:textSize="33sp"
-            tools:layout_editor_absoluteX="118dp"
-            tools:layout_editor_absoluteY="334dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btnContraseña"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
+
+        <EditText
+            android:id="@+id/etContraseña"
+            android:layout_width="228dp"
+            android:layout_height="50dp"
+            android:drawableTint="#CAC0C0"
+            android:ems="10"
+            android:fontFamily="@font/poppins_medium"
+            android:foregroundTint="#CAC0C0"
+            android:hint="_______________________________________________"
+            android:inputType="text|textPassword"
+            android:textColor="#CAC0C0"
+            android:textColorHighlight="#CAC0C0"
+            android:textColorHint="#CAC0C0"
+            android:textColorLink="#CAC0C0"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btnContraseña"
+            app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
         <ImageButton
-            android:id="@+id/imageButton9"
+            android:id="@+id/btnCorreo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="#303030"
-            app:srcCompat="@drawable/mensaje"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="426dp" />
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@color/ColorFondo"
+            android:contentDescription="correo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnContraseña"
+            app:srcCompat="@drawable/mensaje" />
+
+        <ImageButton
+            android:id="@+id/btnEliminar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@color/ColorFondo"
+            android:contentDescription="Boton eliminar cuenta"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnCorreo"
+            app:srcCompat="@drawable/engranaje" />
 
         <TextView
-            android:id="@+id/textView9"
-            android:layout_width="88dp"
-            android:layout_height="41dp"
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
             android:fontFamily="@font/bebas_neue"
-            android:text="Correo"
+            android:text="ELIMINAR CUENTA"
             android:textColor="#CAC0C0"
-            android:textSize="33sp"
-            tools:layout_editor_absoluteX="121dp"
-            tools:layout_editor_absoluteY="429dp" />
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.12"
+            app:layout_constraintStart_toEndOf="@+id/btnEliminar"
+            app:layout_constraintTop_toTopOf="@+id/btnEliminar" />
 
         <EditText
             android:id="@+id/etCorreo"
             android:layout_width="228dp"
-            android:layout_height="47dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
             android:drawableTint="#CAC0C0"
             android:ems="10"
+            android:fontFamily="@font/poppins_medium"
             android:foregroundTint="#CAC0C0"
             android:hint="_______________________________________________"
             android:inputType="text"
@@ -140,216 +184,287 @@
             android:textColorHighlight="#CAC0C0"
             android:textColorHint="#CAC0C0"
             android:textColorLink="#CAC0C0"
-            tools:layout_editor_absoluteX="120dp"
-            tools:layout_editor_absoluteY="470dp" />
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/btnCorreo"
+            app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
         <TextView
-            android:id="@+id/textView10"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/textView9"
+            android:layout_width="88dp"
+            android:layout_height="41dp"
+            android:layout_marginTop="4dp"
             android:fontFamily="@font/bebas_neue"
-            android:text="ELIMINAR CUENTA"
+            android:text="Correo"
             android:textColor="#CAC0C0"
-            android:textSize="30sp"
-            tools:layout_editor_absoluteX="119dp"
-            tools:layout_editor_absoluteY="564dp" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/barraLateral_ContenededorPrincipal"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="#242629"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+            android:textSize="33sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btnCorreo"
+            app:layout_constraintTop_toBottomOf="@+id/btnContraseña" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="visible"
+            android:id="@+id/barraLateral_ContenededorPrincipal"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/urizar_games_bg"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/constraintLayout4"
-                android:layout_width="0dp"
-                android:layout_height="125dp"
-                android:alpha="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:visibility="visible"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0">
-
-                <ImageView
-                    android:id="@+id/imageView3"
-                    android:layout_width="74dp"
-                    android:layout_height="70dp"
-                    android:scaleType="centerCrop"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.105"
-                    app:srcCompat="@drawable/logourizar" />
-
-                <TextView
-                    android:id="@+id/textView11"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="URIZAR - GAMES"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView3"
-                    app:layout_constraintVertical_bias="0.347" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:visibility="visible"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.248">
+                app:layout_constraintTop_toTopOf="parent">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/constraintLayout5"
+                    android:id="@+id/constraintLayout4"
                     android:layout_width="0dp"
-                    android:layout_height="55dp"
+                    android:layout_height="125dp"
+                    android:alpha="1"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0">
+
+                    <ImageView
+                        android:id="@+id/imageView3"
+                        android:layout_width="74dp"
+                        android:layout_height="70dp"
+                        android:scaleType="fitCenter"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.105"
+                        app:srcCompat="@drawable/logourizar" />
+
+                    <TextView
+                        android:id="@+id/textView11"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/bebas_neue"
+                        android:letterSpacing="0.1"
+                        android:text="URIZAR - GAMES"
+                        android:textColor="@color/ColorFuentes"
+                        android:textSize="28sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout9"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
-                    <ImageView
-                        android:id="@+id/imgBtnTienda"
-                        android:layout_width="53dp"
-                        android:layout_height="49dp"
-                        android:scaleType="centerCrop"
-                        app:layout_constraintBottom_toBottomOf="parent"
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintLayout10"
+                        android:layout_width="0dp"
+                        android:layout_height="55dp"
+                        android:layout_marginVertical="10dp"
+                        android:background="@drawable/sidebar_btn"
+                        android:onClick="sidebar_register"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.4"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toBottomOf="@+id/constraintLayout7">
 
-                    <TextView
-                        android:id="@+id/textView15"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="TIENDA"
-                        app:layout_constraintBottom_toBottomOf="parent"
+                        <ImageView
+                            android:id="@+id/imgBtnCrearCuenta"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:scaleType="fitCenter"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.4"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/register_sidebar" />
+
+                        <TextView
+                            android:id="@+id/tvCrearCuenta"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto_medium"
+                            android:text="CREAR UNA CUENTA"
+                            android:textColor="@color/ColorFuentes"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.087"
+                            app:layout_constraintStart_toEndOf="@+id/imgBtnCrearCuenta"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintLayout5"
+                        android:layout_width="0dp"
+                        android:layout_height="55dp"
+                        android:layout_marginVertical="10dp"
+                        android:background="@drawable/sidebar_btn"
+                        android:elevation="10dp"
+                        android:onClick="sidebar_Tienda"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.08"
-                        app:layout_constraintStart_toEndOf="@+id/imgBtnTienda"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
 
+                        <ImageView
+                            android:id="@+id/imgBtnTienda"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:scaleType="fitCenter"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.4"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/shopping_cart_sidebar" />
+
+                        <TextView
+                            android:id="@+id/tvTienda"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto_medium"
+                            android:text="TIENDA"
+                            android:textColor="@color/ColorFuentes"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.08"
+                            app:layout_constraintStart_toEndOf="@+id/imgBtnTienda"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintLayout8"
+                        android:layout_width="0dp"
+                        android:layout_height="55dp"
+                        android:layout_marginVertical="10dp"
+                        android:background="@drawable/sidebar_btn"
+                        android:onClick="sidebar_Library"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/constraintLayout5">
+
+                        <ImageView
+                            android:id="@+id/imgBtnLibreria"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:scaleType="fitCenter"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.4"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/save_sidebar" />
+
+                        <TextView
+                            android:id="@+id/tvLibreria"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto_medium"
+                            android:text="LIBRERIA"
+                            android:textColor="@color/ColorFuentes"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.08"
+                            app:layout_constraintStart_toEndOf="@+id/imgBtnLibreria"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintLayout6"
+                        android:layout_width="0dp"
+                        android:layout_height="55dp"
+                        android:layout_marginVertical="10dp"
+                        android:background="@drawable/sidebar_btn"
+                        android:onClick="sidebar_User"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/constraintLayout8">
+
+                        <ImageView
+                            android:id="@+id/imgBtnUsuario"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:scaleType="fitCenter"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.4"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/user_sidebar" />
+
+                        <TextView
+                            android:id="@+id/tvPerfil"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto_medium"
+                            android:text="PERFIL"
+                            android:textColor="@color/ColorFuentes"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.08"
+                            app:layout_constraintStart_toEndOf="@+id/imgBtnUsuario"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintLayout7"
+                        android:layout_width="0dp"
+                        android:layout_height="55dp"
+                        android:layout_marginVertical="10dp"
+                        android:background="@drawable/sidebar_btn"
+                        android:onClick="sidebar_Login"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/constraintLayout6">
+
+                        <ImageView
+                            android:id="@+id/imgBtnInicioDeSesion"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:scaleType="fitCenter"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.4"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/enter_sidebar" />
+
+                        <TextView
+                            android:id="@+id/tvInicioDeSesion"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto_medium"
+                            android:text="INICIO DE SESION"
+                            android:textColor="@color/ColorFuentes"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.087"
+                            app:layout_constraintStart_toEndOf="@+id/imgBtnInicioDeSesion"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/constraintLayout8"
-                    android:layout_width="0dp"
-                    android:layout_height="55dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout5">
-
-                    <ImageView
-                        android:id="@+id/imgBtnLibreria"
-                        android:layout_width="53dp"
-                        android:layout_height="49dp"
-                        android:scaleType="centerCrop"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.4"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/textView16"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="LIBRERIA"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.08"
-                        app:layout_constraintStart_toEndOf="@+id/imgBtnLibreria"
-                        app:layout_constraintTop_toTopOf="parent" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/constraintLayout6"
-                    android:layout_width="0dp"
-                    android:layout_height="55dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout8">
-
-                    <ImageView
-                        android:id="@+id/imgBtnInicioSesion"
-                        android:layout_width="53dp"
-                        android:layout_height="49dp"
-                        android:scaleType="centerCrop"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.4"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/textView17"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="INICIO DE SESION"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.11"
-                        app:layout_constraintStart_toEndOf="@+id/imgBtnInicioSesion"
-                        app:layout_constraintTop_toTopOf="parent" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/constraintLayout7"
-                    android:layout_width="0dp"
-                    android:layout_height="55dp"
-                    android:layout_marginTop="110dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/constraintLayout8">
-
-                    <ImageView
-                        android:id="@+id/imgBtnRegistro"
-                        android:layout_width="53dp"
-                        android:layout_height="49dp"
-                        android:scaleType="centerCrop"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.4"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/textView18"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="REGISTRO"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.087"
-                        app:layout_constraintStart_toEndOf="@+id/imgBtnRegistro"
-                        app:layout_constraintTop_toTopOf="parent" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>

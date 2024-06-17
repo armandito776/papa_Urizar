@@ -47,8 +47,8 @@ public class Registro extends AppCompatActivity {
 
         if (etUsuario.getText().toString().isEmpty() || etPass.getText().toString().isEmpty() || etEmail.getText().toString().isEmpty()) { return; }
 
-        String email_format = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]$";
-        if (etEmail.getText().toString().matches(email_format)) {
+        String email_format = "[a-zA-Z][\\w-]{1,20}@\\w{2,20}\\.\\w{3,3}$";
+        if (!etEmail.getText().toString().matches(email_format)) {
             etEmail.setError("El Correo No Es Valido");
             return;
         }
@@ -64,7 +64,7 @@ public class Registro extends AppCompatActivity {
         }
 
         ContentValues userData = new ContentValues();
-        userData.put("user", etUsuario.getText().toString());
+        userData.put("user", etUsuario.getText().toString().trim());
         userData.put("pass", etPass.getText().toString());
         userData.put("email", etEmail.getText().toString());
 

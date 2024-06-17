@@ -10,6 +10,7 @@ import android.os.StrictMode;
 import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,8 +20,9 @@ import java.util.ArrayList;
 
 public class Biblioteca extends AppCompatActivity {
     ConstraintLayout barraLateral_ContenedorPrincipal;
+    TextView tvTotal;
     ListView gamesListView;
-    String userEmail;
+    String userEmail, userName;
     boolean isBarActive = false;
     ArrayList<String> img_Games = new ArrayList<>();
     ArrayList<String> game_Names = new ArrayList<>();
@@ -41,6 +43,7 @@ public class Biblioteca extends AppCompatActivity {
     int tags_count = 0;
     int row = 0;
     int tag_index = 0;
+    double total_juegos = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,11 +51,13 @@ public class Biblioteca extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_biblioteca);
         userEmail = getIntent().getStringExtra("userEmail");
+        userName = getIntent().getStringExtra("userName");
         System.out.println(userEmail);
         Resources res = this.getResources();
 
         barraLateral_ContenedorPrincipal = findViewById(R.id.barraLateral_ContenededorPrincipal);
         gamesListView = findViewById(R.id.gamesListView);
+        tvTotal = (TextView) findViewById(R.id.tvTotal);
 
         if (userEmail.isEmpty()) {
             gamesListView.setVisibility(View.GONE);
@@ -70,11 +75,12 @@ public class Biblioteca extends AppCompatActivity {
         AdminOpenHelper Ad_gameTags = new AdminOpenHelper(this, "gameTags", null, 1);
         SQLiteDatabase Bd_gameTags = Ad_gameTags.getWritableDatabase();
 
-        selectQuery_user_selected_game_data = "SELECT * FROM selectedGames GROUP BY idGame HAVING userEmail="
+        selectQuery_user_selected_game_data = "SELECT * FROM selectedGames WHERE userEmail="
                 + "'"+userEmail+"'";
         Query_tbl_user_selected_game_data = Bd_selectedGames.rawQuery(selectQuery_user_selected_game_data, null);
 
         if (!Query_tbl_user_selected_game_data.moveToFirst()) {
+            System.out.println("No Games");
            return;
         }
 
@@ -87,7 +93,7 @@ public class Biblioteca extends AppCompatActivity {
             if (!Query_tbl_game_data.moveToFirst()) {
                 return;
             }
-
+            System.out.println(Query_tbl_game_data.getString(2));
             img_Games.add(Query_tbl_game_data.getString(1));
             game_Names.add(Query_tbl_game_data.getString(2));
             game_Genres.add(Query_tbl_game_data.getString(3));
@@ -142,6 +148,12 @@ public class Biblioteca extends AppCompatActivity {
         LibraryGameAdapter library_adapter = new LibraryGameAdapter(getApplicationContext(), img_Games, game_Names, game_Genres, game_Prices, general_Reviews, all_Reviews, game_Tags, background_Drawable);
         gamesListView.setAdapter(library_adapter);
 
+        for (String gamePrice : game_Prices)
+        {
+            total_juegos = Double.parseDouble(gamePrice) + total_juegos;
+        }
+
+        tvTotal.setText(String.format("%sMXN", total_juegos));
     }
 
     public void crearBarraLateral(View view)
@@ -164,6 +176,7 @@ public class Biblioteca extends AppCompatActivity {
     {
         Intent tienda_ = new Intent(this, Tienda.class);
         tienda_.putExtra("userEmail", userEmail);
+        tienda_.putExtra("userName", userName);
         startActivity(tienda_);
     }
 
@@ -171,6 +184,7 @@ public class Biblioteca extends AppCompatActivity {
     {
         Intent library_ = new Intent(this, Biblioteca.class);
         library_.putExtra("userEmail", userEmail);
+        library_.putExtra("userName", userName);
         startActivity(library_);
     }
 
