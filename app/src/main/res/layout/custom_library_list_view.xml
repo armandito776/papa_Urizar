@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/gameContainer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/game_Image"
+            android:layout_width="80dp"
+            android:layout_height="100dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/gameName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/bebas_neue"
+            android:letterSpacing="0"
+            android:text="Game Name"
+            android:textColor="@color/ColorFuentes"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/game_Image"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/gameGenre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bebas_neue"
+            android:letterSpacing="0"
+            android:text="Game Genre"
+            android:textColor="@color/ColorFuentes2"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toStartOf="@+id/gamePrice"
+            app:layout_constraintStart_toEndOf="@+id/gameName"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/gamePrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bebas_neue"
+            android:letterSpacing="0"
+            android:text="600MXN"
+            android:textColor="@color/ColorFuentes"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.89"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/general_reviews"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/roboto_medium"
+            android:text="Reseñas Generales:"
+            android:textColor="@color/ColorFuentes"
+            android:textSize="10sp"
+            app:layout_constraintStart_toEndOf="@+id/game_Image"
+            app:layout_constraintTop_toBottomOf="@+id/gameName" />
+
+        <TextView
+            android:id="@+id/all_reviews"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/roboto_medium"
+            android:text="Todas las reseñas:"
+            android:textColor="@color/ColorFuentes"
+            android:textSize="10sp"
+            app:layout_constraintStart_toEndOf="@+id/game_Image"
+            app:layout_constraintTop_toBottomOf="@+id/general_reviews" />
+
+        <HorizontalScrollView
+            android:id="@+id/scrollView_tags_horizontal"
+            android:layout_width="0dp"
+            android:layout_height="18dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/game_Image"
+            app:layout_constraintTop_toBottomOf="@+id/all_reviews">
+
+            <LinearLayout
+                android:id="@+id/linearLayout_tags_container"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/Tag1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="3dp"
+                    android:background="@drawable/tagbackground"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="Etiqueta 1"
+                    android:textColor="@color/ColorFuentes"
+                    android:textSize="8dp" />
+
+                <TextView
+                    android:id="@+id/Tag2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="3dp"
+                    android:background="@drawable/tagbackground"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="Etiqueta 2"
+                    android:textColor="@color/ColorFuentes"
+                    android:textSize="8dp" />
+
+                <TextView
+                    android:id="@+id/Tag3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="3dp"
+                    android:background="@drawable/tagbackground"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="Etiqueta 3"
+                    android:textColor="@color/ColorFuentes"
+                    android:textSize="8dp" />
+
+                <TextView
+                    android:id="@+id/Tag4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="3dp"
+                    android:background="@drawable/tagbackground"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="Etiqueta 4"
+                    android:textColor="@color/ColorFuentes"
+                    android:textSize="8dp" />
+            </LinearLayout>
+        </HorizontalScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

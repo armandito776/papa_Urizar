@@ -13,6 +13,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import java.util.regex.Pattern;
+
 public class Registro extends AppCompatActivity {
 
     boolean isBarActive = false;
@@ -45,12 +47,18 @@ public class Registro extends AppCompatActivity {
 
         if (etUsuario.getText().toString().isEmpty() || etPass.getText().toString().isEmpty() || etEmail.getText().toString().isEmpty()) { return; }
 
+        String email_format = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]$";
+        if (etEmail.getText().toString().matches(email_format)) {
+            etEmail.setError("El Correo No Es Valido");
+            return;
+        }
+
         String check_if_user_exists = "SELECT email FROM Usuarios WHERE email="
                 + "'" + etEmail.getText().toString() +"'";
 
         try (Cursor Query_check = Bd.rawQuery(check_if_user_exists, null)) {
             if (Query_check.moveToFirst()) {
-                Toast.makeText(this, "El usuario: " + etEmail.getText() + " Ya existe", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "El usuario: " + etUsuario.getText() + " Ya existe", Toast.LENGTH_LONG).show();
                 return;
             }
         }
@@ -107,6 +115,40 @@ public class Registro extends AppCompatActivity {
         }
         */
 
+        public void sidebar_Tienda(View view)
+        {
+            Intent tienda_ = new Intent(this, Tienda.class);
+            tienda_.putExtra("userEmail", "");
+            startActivity(tienda_);
+        }
+
+        public void sidebar_Library(View view)
+        {
+            Intent library_ = new Intent(this, Biblioteca.class);
+            library_.putExtra("userEmail", "");
+            startActivity(library_);
+        }
+
+        public void sidebar_User(View view)
+        {
+            Intent user_ = new Intent(this, Usuario.class);
+            user_.putExtra("userEmail", "");
+            startActivity(user_);
+        }
+
+        public void sidebar_Login(View view)
+        {
+            Intent login_ = new Intent(this, Inicio_sesion.class);
+
+            startActivity(login_);
+        }
+
+        public void sidebar_register(View view)
+        {
+            Intent register_ = new Intent(this, Registro.class);
+
+            startActivity(register_);
+        }
 
         }
 

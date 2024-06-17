@@ -16,7 +16,6 @@ public class Bienvenido extends AppCompatActivity {
     public void tercera(View v){
         Intent sig = new Intent(this,Inicio_sesion.class);
 
-
         startActivity(sig);
     }
 }

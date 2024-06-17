@@ -11,18 +11,14 @@ public class AdminOpenHelper extends SQLiteOpenHelper {
 
     @Override // android.database.sqlite.SQLiteOpenHelper
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("DROP TABLE if EXISTS Usuarios");
-        db.execSQL("DROP TABLE if EXISTS Games");
-        db.execSQL("DROP TABLE if EXISTS selectedGames");
-        db.execSQL("DROP TABLE if EXISTS gameTags");
         db.execSQL("CREATE TABLE Usuarios(user TEXT, pass TEXT, email TEXT PRIMARY KEY)");
-        db.execSQL("CREATE TABLE Games(idGame TEXT PRIMARY KEY, imgGame INTEGER, gameName TEXT, genreGame TEXT, price DOUBLE)");
+        db.execSQL("CREATE TABLE Games(idGame TEXT PRIMARY KEY, imgGame INTEGER, gameName TEXT, genreGame TEXT, price DOUBLE, general_reviews TEXT, all_reviews TEXT)");
         db.execSQL
                 (
-                "CREATE TABLE " +
-                "selectedGames(userEmail TEXT NOT NULL, " +
-                "idGame TEXT NOT NULL, " + "FOREIGN KEY(userEmail) REFERENCES Usuarios(email), " +
-                "FOREIGN KEY(idGame) REFERENCES Games(id)," + "CONSTRAINT PK_user_selectedGames PRIMARY KEY (idGame, userEmail))"
+                        "CREATE TABLE " +
+                                "selectedGames(userEmail TEXT NOT NULL, " +
+                                "idGame TEXT NOT NULL, " + "FOREIGN KEY(userEmail) REFERENCES Usuarios(email), " +
+                                "FOREIGN KEY(idGame) REFERENCES Games(idGame)," + "CONSTRAINT PK_user_selectedGames PRIMARY KEY (idGame, userEmail))"
                 );
         db.execSQL
                 (
@@ -34,10 +30,10 @@ public class AdminOpenHelper extends SQLiteOpenHelper {
                 );
         db.execSQL
                 ("CREATE TABLE " +
-                "gameDevelopers(idGame INTEGER NOT NULL, " +
-                "idDeveloper INTEGER NOT NULL, Developer TEXT, " +
-                "FOREIGN KEY(idGame) REFERENCES Games(idGame), " +
-                "CONSTRAINT PK_game_developers PRIMARY KEY(idGame, idDeveloper))"
+                        "gameDevelopers(idGame INTEGER NOT NULL, " +
+                        "idDeveloper INTEGER NOT NULL, Developer TEXT, " +
+                        "FOREIGN KEY(idGame) REFERENCES Games(idGame), " +
+                        "CONSTRAINT PK_game_developers PRIMARY KEY(idGame, idDeveloper))"
                 );
     }
 
@@ -48,13 +44,13 @@ public class AdminOpenHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE if EXISTS selectedGames");
         db.execSQL("DROP TABLE if EXISTS gameTags");
         db.execSQL("CREATE TABLE Usuarios(user TEXT, pass TEXT, email TEXT PRIMARY KEY)");
-        db.execSQL("CREATE TABLE Games(idGame TEXT PRIMARY KEY, imgGame INTEGER, gameName TEXT, genreGame TEXT, price DOUBLE)");
+        db.execSQL("CREATE TABLE Games(idGame TEXT PRIMARY KEY, imgGame INTEGER, gameName TEXT, genreGame TEXT, price DOUBLE, general_reviews TEXT, all_reviews TEXT)");
         db.execSQL
                 (
                         "CREATE TABLE " +
                                 "selectedGames(userEmail TEXT NOT NULL, " +
                                 "idGame TEXT NOT NULL, " + "FOREIGN KEY(userEmail) REFERENCES Usuarios(email), " +
-                                "FOREIGN KEY(idGame) REFERENCES Games(id)," + "CONSTRAINT PK_user_selectedGames PRIMARY KEY (idGame, userEmail))"
+                                "FOREIGN KEY(idGame) REFERENCES Games(idGame)," + "CONSTRAINT PK_user_selectedGames PRIMARY KEY (idGame, userEmail))"
                 );
         db.execSQL
                 (

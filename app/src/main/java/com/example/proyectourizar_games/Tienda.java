@@ -1,6 +1,7 @@
 package com.example.proyectourizar_games;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -8,9 +9,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -23,19 +26,30 @@ public class Tienda extends AppCompatActivity {
     ImageView imgBtnBarra;
     ConstraintLayout barraLateral_ContenedorPrincipal;
     TableLayout tableLayout_class;
+    ScrollView scrollGames;
     TextView textView_class;
 
     int imageCounter = 3;
-    int nRows = 0;
     boolean isBarActive = false;
+    String userEmail;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tienda);
+        userEmail = getIntent().getStringExtra("userEmail");
+        System.out.println(userEmail);
+        scrollGames = (ScrollView) findViewById(R.id.scrollGames);
         imgBtnBarra = (ImageView) findViewById(R.id.imgBarra2);
         barraLateral_ContenedorPrincipal = (ConstraintLayout) findViewById(R.id.barraLateral_ContenededorPrincipal);
         tableLayout_class = (TableLayout) findViewById(R.id.gamesAventuraTagsContainer);
         textView_class = (TextView) findViewById(R.id.textView5);
+
+
+        if (userEmail.isEmpty()) {
+            scrollGames.setVisibility(View.GONE);
+            Toast.makeText(this, "Debes iniciar sesion para usar la tienda", Toast.LENGTH_LONG).show();
+            return;
+        }
 
         AdminOpenHelper admin = new AdminOpenHelper(this, "Games", null, 1);
         SQLiteDatabase dataBase = admin.getWritableDatabase();
@@ -48,127 +62,125 @@ public class Tienda extends AppCompatActivity {
             Cursor query_test = dataBase.rawQuery(_query_test, null);
 
             if (query_test.moveToFirst()) {
+                dataBase.close();
                 return;
             }
+        dataBase.close();
+        //AVENTURA
+        insertGames("Aventura1", R.drawable.thelegendofzeldaaventura, "The Legend Of Zelda: Breath Of The Wild", "Aventura", 1100, "Positivas", "Muy Positivas");
+        insertGameTags("Aventura1", 1, "Juego De Rol");
+        insertGameTags("Aventura1", 2, "Mundo Abierto");
+        insertGameTags("Aventura1", 3, "Atmosferico");
+        insertGameTags("Aventura1", 4, "Tercera Persona");
+        insertGameDevelopers("Aventura1", 1, "Nintendo Entertainment Planning & Development");
 
-            //AVENTURA
-            insertGames("Aventura1", R.drawable.thelegendofzeldaaventura, "The Legend Of Zelda: Breath Of The Wild", "Aventura", 1100);
-            insertGameTags("Aventura1", 1, "Juego De Rol");
-            insertGameTags("Aventura1", 2, "Mundo Abierto");
-            insertGameTags("Aventura1", 3, "Atmosferico");
-            insertGameTags("Aventura1", 4, "Tercera Persona");
-            insertGameDevelopers("Aventura1", 1, "Nintendo Entertainment Planning & Development");
+        insertGames("Aventura2", R.drawable.godofwaraventura, "God Of War", "Aventura", 829, "Extremadamente Positivas", "Extremadamente Positivas");
+        insertGameTags("Aventura2", 5, "Un Jugador");
+        insertGameTags("Aventura2", 6, "Gore");
+        insertGameTags("Aventura2", 7, "Mundo Abierto");
+        insertGameTags("Aventura2", 8, "Souls-Like");
+        insertGameDevelopers("Aventura2", 2, "Santa Monica Studio, Jetpack Interactive");
 
-            insertGames("Aventura2", R.drawable.godofwaraventura, "God Of War", "Aventura", 829);
-            insertGameTags("Aventura2", 5, "Un Jugador");
-            insertGameTags("Aventura2", 6, "Gore");
-            insertGameTags("Aventura2", 7, "Mundo Abierto");
-            insertGameTags("Aventura2", 8, "Souls-Like");
-            insertGameDevelopers("Aventura2", 2, "Santa Monica Studio");
-            insertGameDevelopers("Aventura2", 3, "Jetpack Interactive");
+        insertGames("Aventura3", R.drawable.hogwartsaventura, "Hogwarts Legacy", "Aventura", 999, "Mayormente Positivas", "Muy Positivas");
+        insertGameTags("Aventura3", 9, "Magia");
+        insertGameTags("Aventura3", 10, "Mundo Abierto");
+        insertGameTags("Aventura3", 11, "Tercera Persona");
+        insertGameTags("Aventura3", 12, "RPG");
+        insertGameDevelopers("Aventura3", 3, "Avalanche Software");
 
-            insertGames("Aventura3", R.drawable.hogwartsaventura, "Hogwarts Legacy", "Aventura", 999);
-            insertGameTags("Aventura3", 9, "Magia");
-            insertGameTags("Aventura3", 10, "Mundo Abierto");
-            insertGameTags("Aventura3", 11, "Tercera Persona");
-            insertGameTags("Aventura3", 12, "RPG");
-            insertGameDevelopers("Aventura3", 4, "Avalanche Software");
+        insertGames("Aventura4", R.drawable.tearsofthekingdomaventura, "The Legend Of Zelda: Tears Of The Kingdom", "Aventura", 1200, "Extremadamente Positivas", "Extremadamente Positivas");
+        insertGameTags("Aventura4", 13, "Juego De Rol");
+        insertGameTags("Aventura4", 14, "Mundo Abierto");
+        insertGameTags("Aventura4", 15, "Atmosferico");
+        insertGameTags("Aventura4", 16, "Tercera Persona");
+        insertGameDevelopers("Aventura4", 4, "Nintendo Entertainment Planning & Development");
 
-            insertGames("Aventura4", R.drawable.tearsofthekingdomaventura, "The Legend Of Zelda: Tears Of The Kingdom", "Aventura", 1200);
-            insertGameTags("Aventura4", 13, "Juego De Rol");
-            insertGameTags("Aventura4", 14, "Mundo Abierto");
-            insertGameTags("Aventura4", 15, "Atmosferico");
-            insertGameTags("Aventura4", 16, "Tercera Persona");
-            insertGameDevelopers("Aventura4", 5, "Nintendo Entertainment Planning & Development");
+        //ACCION
+        insertGames("Accion1", R.drawable.cyberpunkaccion, "Cyberpunk 2077", "Accion", 800, "Muy Positivas", "Muy Positivas");
+        insertGameTags("Accion1", 17, "Desnudos");
+        insertGameTags("Accion1", 18, "Primera Persona");
+        insertGameTags("Accion1", 19, "Mundo Abierto");
+        insertGameTags("Accion1", 20, "Violento");
+        insertGameDevelopers("Accion1", 5, "CD PROJEKT RED");
 
-            //ACCION
-            insertGames("Accion1", R.drawable.cyberpunkaccion, "Cyberpunk 2077", "Accion", 800);
-            insertGameTags("Accion1", 17, "Desnudos");
-            insertGameTags("Accion1", 18, "Primera Persona");
-            insertGameTags("Accion1", 19, "Mundo Abierto");
-            insertGameTags("Accion1", 20, "Violento");
-            insertGameDevelopers("Accion1", 6, "CD PROJEKT RED");
+        insertGames("Accion2", R.drawable.dmc5accion, "Devil May Cry 5", "Accion", 599, "Extremadamente Positivas", "Extremadamente Positivas");
+        insertGameTags("Accion2", 21, "Hack And Slash");
+        insertGameTags("Accion2", 22, "Anime");
+        insertGameTags("Accion2", 23, "Violento");
+        insertGameTags("Accion2", 24, "Buen Soundtrack");
+        insertGameDevelopers("Accion2", 6, "CAPCOM CO., Ltd.");
 
-            insertGames("Accion2", R.drawable.dmc5accion, "Devil May Cry 5", "Accion", 599);
-            insertGameTags("Accion2", 21, "Hack And Slash");
-            insertGameTags("Accion2", 22, "Anime");
-            insertGameTags("Accion2", 23, "Violento");
-            insertGameTags("Accion2", 24, "Buen Soundtrack");
-            insertGameDevelopers("Accion2", 7, "CAPCOM CO.");
-            insertGameDevelopers("Accion2", 8, "Ltd.");
+        insertGames("Accion3", R.drawable.dl2accion, "Dying Light 2", "Accion", 1299, "Mayormente Positivas", "Mayormente Positivas");
+        insertGameTags("Accion3", 25, "Zombies");
+        insertGameTags("Accion3", 26, "Horror");
+        insertGameTags("Accion3", 27, "Primera Persona");
+        insertGameTags("Accion3", 28, "Post Apocaliptico");
+        insertGameDevelopers("Accion3", 7, "Techland");
 
-            insertGames("Accion3", R.drawable.dl2accion, "Dying Light 2", "Accion", 1299);
-            insertGameTags("Accion3", 25, "Zombies");
-            insertGameTags("Accion3", 26, "Horror");
-            insertGameTags("Accion3", 27, "Primera Persona");
-            insertGameTags("Accion3", 28, "Post Apocaliptico");
-            insertGameDevelopers("Accion3", 9, "Techland");
+        insertGames("Accion4", R.drawable.detroitaccion, "Detroit: Become Human", "Accion", 799, "Extremadamente Positivas", "Extremadamente Positivas");
+        insertGameTags("Accion4", 29, "Cinematico");
+        insertGameTags("Accion4", 30, "Futurista");
+        insertGameTags("Accion4", 31, "Narracion");
+        insertGameTags("Accion4", 32, "Narracion Dinamica");
+        insertGameDevelopers("Accion4", 8, "Quantic Dream");
 
-            insertGames("Accion4", R.drawable.detroitaccion, "Detroit: Become Human", "Accion", 799);
-            insertGameTags("Accion4", 29, "Cinematico");
-            insertGameTags("Accion4", 30, "Futurista");
-            insertGameTags("Accion4", 31, "Narracion");
-            insertGameTags("Accion4", 32, "Narracion Dinamica");
-            insertGameDevelopers("Accion4", 10, "Quantic Dream");
+        //TERROR
+        insertGames("Terror1", R.drawable.ptterror, "PT: Silent Hill", "Terror", 0, "Sin Reseñas", "Sin Reseñas");
+        insertGameTags("Terror1", 33, "Primera Persona");
+        insertGameTags("Terror1", 34, "Horror");
+        insertGameTags("Terror1", 35, "Violento");
+        insertGameTags("Terror1", 36, "Terror Psicologico");
+        insertGameDevelopers("Terror1", 9, "KONAMI");
 
-            //TERROR
-            insertGames("Terror1", R.drawable.ptterror, "PT: Silent Hill", "Terror", 0);
-            insertGameTags("Terror1", 33, "Primera Persona");
-            insertGameTags("Terror1", 34, "Horror");
-            insertGameTags("Terror1", 35, "Violento");
-            insertGameTags("Terror1", 36, "Terror Psicologico");
-            insertGameDevelopers("Terror1", 11, "KONAMI");
+        insertGames("Terror2", R.drawable.amnessiaterror, "Amnesia: The Dark Descent", "Terror" ,227.99, "Extremadamente Positivas", "Extremadamente Positivas");
+        insertGameTags("Terror2", 37, "Horror");
+        insertGameTags("Terror2", 38, "Sigilo");
+        insertGameTags("Terror2", 39, "Walking Simulator");
+        insertGameTags("Terror2", 40, "Exploracion");
+        insertGameDevelopers("Terror2", 10, "Frictional Games");
 
-            insertGames("Terror2", R.drawable.amnessiaterror, "Amnesia: The Dark Descent", "Terror" ,227.99);
-            insertGameTags("Terror2", 37, "Horror");
-            insertGameTags("Terror2", 38, "Sigilo");
-            insertGameTags("Terror2", 39, "Walking Simulator");
-            insertGameTags("Terror2", 40, "Exploracion");
-            insertGameDevelopers("Terror2", 12, "Frictional Games");
+        insertGames("Terror3", R.drawable.re7terror, "Resident Evil 7 Biohazard", "Terror", 399, "Extremadamente Positivas", "Extremadamente Positivas");
+        insertGameTags("Terror3", 41, "Terror Psicologico");
+        insertGameTags("Terror3", 42, "Zombies");
+        insertGameTags("Terror3", 43, "Survival Horror");
+        insertGameTags("Terror3", 44, "Primera Persona");
+        insertGameDevelopers("Terror3", 11, "CAPCOM CO., Ltd.");
 
-            insertGames("Terror3", R.drawable.re7terror, "Resident Evil 7 Biohazard", "Teror", 399);
-            insertGameTags("Terror3", 41, "Terror Psicologico");
-            insertGameTags("Terror3", 42, "Zombies");
-            insertGameTags("Terror3", 43, "Survival Horror");
-            insertGameTags("Terror3", 44, "Primera Persona");
-            insertGameDevelopers("Terror3", 13, "CAPCOM CO.");
-            insertGameDevelopers("Terror3", 14, "Ltd.");
+        insertGames("Terror4", R.drawable.kf2accion, "Killing Floor 2", "Terror", 200, "Mayormente Positivas", "Muy Positivas");
+        insertGameTags("Terror4", 45, "Zombies");
+        insertGameTags("Terror4", 46, "Primera Persona");
+        insertGameTags("Terror4", 47, "Online Co-Op");
+        insertGameTags("Terror4", 48, "Hack And Slash");
+        insertGameDevelopers("Terror4", 12, "Tripwire Interactive");
 
-            insertGames("Terror4", R.drawable.kf2accion, "Killing Floor 2", "Terror", 200);
-            insertGameTags("Terror4", 45, "Zombies");
-            insertGameTags("Terror4", 46, "Primera Persona");
-            insertGameTags("Terror4", 47, "Online Co-Op");
-            insertGameTags("Terror4", 48, "Hack And Slash");
-            insertGameDevelopers("Terror4", 15, "Tripwire Interactive");
+        //ESTRATEGIA
+        insertGames("Estrategia1", R.drawable.lolestrategia, "League Of Legendds", "Estrategia", 0, "Muy Positivas", "Muy Positivas");
+        insertGameTags("Estrategia1", 49, "Competitivo");
+        insertGameTags("Estrategia1", 50, "Juego De Rol");
+        insertGameTags("Estrategia1", 51, "Magico");
+        insertGameTags("Estrategia1", 52, "MOBA");
+        insertGameDevelopers("Estrategia1", 13, "RIOT GAMES");
 
-            //ESTRATEGIA
-            insertGames("Estrategia1", R.drawable.lolestrategia, "League Of Legendds", "Estrategia", 0);
-            insertGameTags("Estrategia1", 49, "Competitivo");
-            insertGameTags("Estrategia1", 50, "Juego De Rol");
-            insertGameTags("Estrategia1", 51, "Magico");
-            insertGameTags("Estrategia1", 52, "MOBA");
-            insertGameDevelopers("Estrategia1", 16, "RIOT GAMES");
+        insertGames("Estrategia2", R.drawable.tf2estrategia, "Team Fortress 2", "Estrategia", 0, "Extremadamente Negativas (Maldito Valve)", "Muy Positivas");
+        insertGameTags("Estrategia2", 53, "Free To Play");
+        insertGameTags("Estrategia2", 54, "Tactico");
+        insertGameTags("Estrategia2", 55, "Class-Based");
+        insertGameTags("Estrategia2", 56, "Online Co-Op");
+        insertGameDevelopers("Estrategia2", 14, "Valve");
 
-            insertGames("Estrategia2", R.drawable.tf2estrategia, "Team Fortress 2", "Estrategia", 0);
-            insertGameTags("Estrategia2", 53, "Free To Play");
-            insertGameTags("Estrategia2", 54, "Tactico");
-            insertGameTags("Estrategia2", 55, "Class-Based");
-            insertGameTags("Estrategia2", 56, "Online Co-Op");
-            insertGameDevelopers("Estrategia2", 17, "Valve");
+        insertGames("Estrategia3", R.drawable.ttestrategia, "Teamlight Tactics", "Estrategia", 0, "Muy Positivas", "Muy Positivas");
+        insertGameTags("Estrategia3", 57, "Competitivo");
+        insertGameTags("Estrategia3", 58, "Juego De Rol");
+        insertGameTags("Estrategia3", 59, "MOBA");
+        insertGameTags("Estrategia3", 60, "Camara Isometrica");
+        insertGameDevelopers("Estrategia3", 15, "RIOT GAMES");
 
-            insertGames("Estrategia3", R.drawable.ttestrategia, "Teamlight Tactics", "Estrategia", 0);
-            insertGameTags("Estrategia3", 57, "Competitivo");
-            insertGameTags("Estrategia3", 58, "Juego De Rol");
-            insertGameTags("Estrategia3", 59, "MOBA");
-            insertGameTags("Estrategia3", 60, "Camara Isometrica");
-            insertGameDevelopers("Estrategia3", 18, "RIOT GAMES");
-
-            insertGames("Estrategia4", R.drawable.valorantestrategia, "VALORANT", "Estrategia", 0);
-            insertGameTags("Estrategia4", 61, "FPS");
-            insertGameTags("Estrategia4", 62, "Online Co-Op");
-            insertGameTags("Estrategia4", 63, "Tactical Shooter");
-            insertGameTags("Estrategia4", 64, "Competitivo");
-            insertGameDevelopers("Estrategia4", 19, "RIOT GAMES");
+        insertGames("Estrategia4", R.drawable.valorantestrategia, "VALORANT", "Estrategia", 0, "Mayormente Positivas", "Muy Positivas");
+        insertGameTags("Estrategia4", 61, "FPS");
+        insertGameTags("Estrategia4", 62, "Online Co-Op");
+        insertGameTags("Estrategia4", 63, "Tactical Shooter");
+        insertGameTags("Estrategia4", 64, "Competitivo");
+        insertGameDevelopers("Estrategia4", 16, "RIOT GAMES");
     }
 
     public void crearBarraLateral(View view)
@@ -187,7 +199,7 @@ public class Tienda extends AppCompatActivity {
 
     }
 
-    public void insertGames(String idGame, int imgGame, String gameName, String genreGame, double price)
+    public void insertGames(String idGame, int imgGame, String gameName, String genreGame, double price, String general_Reviews, String all_Reviews)
     {
         AdminOpenHelper admin = new AdminOpenHelper(this, "Games", null, 1);
         SQLiteDatabase dataBase = admin.getWritableDatabase();
@@ -198,13 +210,10 @@ public class Tienda extends AppCompatActivity {
         gameData.put("gameName", gameName);
         gameData.put("genreGame", genreGame);
         gameData.put("price", price);
+        gameData.put("general_reviews", general_Reviews);
+        gameData.put("all_reviews", all_Reviews);
         dataBase.insert("Games", null, gameData);
         dataBase.close();
-    }
-
-    public void insertSelectedGame()
-    {
-
     }
 
     public void insertGameTags(String idGame, int idTag, String Tag)
@@ -233,6 +242,46 @@ public class Tienda extends AppCompatActivity {
         dataBase.close();
     }
 
+    public void insertSelectedGame(String idGame)
+    {
+        AdminOpenHelper admin = new AdminOpenHelper(this, "selectedGames", null, 1);
+        SQLiteDatabase dataBase = admin.getWritableDatabase();
+
+        String check_if_game_was_already_selected = "SELECT idGame, userEmail FROM selectedGames WHERE idGame="
+                + "'" + idGame+"' AND userEmail="  + "'" +userEmail+"'";
+        Cursor Query_check_if_game = dataBase.rawQuery(check_if_game_was_already_selected,null);
+
+        if (Query_check_if_game.moveToFirst())
+        {
+            dataBase.delete("selectedGames","userEmail=" + "'" +userEmail+"' AND idGame=" + "'" +idGame+"'",null);
+            System.out.println(Query_check_if_game.getString(0) + Query_check_if_game.getString(1));
+            Toast.makeText(this, "Juego Deseleccionado", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        ContentValues selectedGameData = new ContentValues();
+        selectedGameData.put("userEmail", userEmail);
+        selectedGameData.put("idGame", idGame);
+        dataBase.insert("selectedGames", null, selectedGameData);
+        dataBase.close();
+        Toast.makeText(this, "Juego Seleccionado", Toast.LENGTH_SHORT).show();
+    }
+
+    public void onClickGameImage(View gameImage)
+    {
+        ConstraintLayout gameContainer = (ConstraintLayout) gameImage.getParent();
+
+        for (View gameImages : getGameImages(gameContainer))
+        {
+            if (gameImages.getVisibility() == View.VISIBLE)
+            {
+                gameImages.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.bounce));
+                insertSelectedGame(gameImages.getContentDescription().toString());
+            }
+        }
+
+    }
+
     public void leftArrowFunc(View view)
     {
         ConstraintLayout gameContainer = (ConstraintLayout) view.getParent();
@@ -242,7 +291,6 @@ public class Tienda extends AppCompatActivity {
             if (gameImages.getVisibility() == View.VISIBLE)
             {
                 imageCounter = getGameImages(gameContainer).indexOf(gameImages);
-
             }
         }
 
@@ -254,7 +302,7 @@ public class Tienda extends AppCompatActivity {
         getGameImages(gameContainer).get(imageCounter - 1).startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.left_arrow_animation2));
 
         getGameImages(gameContainer).get(imageCounter - 1).setVisibility(View.VISIBLE);
-        getGameImages(gameContainer).get(imageCounter).setVisibility(View.INVISIBLE);
+        getGameImages(gameContainer).get(imageCounter).setVisibility(View.GONE);
 
         /*
         if (getGameImages(gameContainer).get(1).getContentDescription().toString().contains("Aventura"))
@@ -300,7 +348,7 @@ public class Tienda extends AppCompatActivity {
         getGameImages(gameContainer).get(imageCounter + 1).startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.right_arrow_animation2));
 
         getGameImages(gameContainer).get(imageCounter + 1).setVisibility(View.VISIBLE);
-        getGameImages(gameContainer).get(imageCounter).setVisibility(View.INVISIBLE);
+        getGameImages(gameContainer).get(imageCounter).setVisibility(View.GONE);
     }
 
     public void setGameTags (View parent, int imageIndex)
@@ -447,5 +495,39 @@ public class Tienda extends AppCompatActivity {
     }
      */
 
+    public void sidebar_Tienda(View view)
+    {
+        Intent tienda_ = new Intent(this, Tienda.class);
+        tienda_.putExtra("userEmail", userEmail);
+        startActivity(tienda_);
+    }
+
+    public void sidebar_Library(View view)
+    {
+        Intent library_ = new Intent(this, Biblioteca.class);
+        library_.putExtra("userEmail", userEmail);
+        startActivity(library_);
+    }
+
+    public void sidebar_User(View view)
+    {
+        Intent user_ = new Intent(this, Usuario.class);
+        user_.putExtra("userEmail", userEmail);
+        startActivity(user_);
+    }
+
+    public void sidebar_Login(View view)
+    {
+        Intent login_ = new Intent(this, Inicio_sesion.class);
+
+        startActivity(login_);
+    }
+
+    public void sidebar_register(View view)
+    {
+        Intent register_ = new Intent(this, Registro.class);
+
+        startActivity(register_);
+    }
 
 }

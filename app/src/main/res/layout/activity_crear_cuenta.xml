@@ -7,33 +7,6 @@
     android:background="@color/ColorFondo"
     tools:context=".InicioSesion">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/barraLateral_ContenededorPrincipal_B"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@drawable/headergradient"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/barraLateral_ContenededorPrincipal_B"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@drawable/headergradient"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/listView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -198,16 +171,17 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="350dp"
-        android:layout_height="50dp"
+        android:layout_width="330dp"
+        android:layout_height="52dp"
         android:backgroundTint="@color/ColorFuentes"
         android:fontFamily="@font/poppins_medium"
-        android:onClick="alta"
+        android:onClick="insertUser"
         android:text="CREAR CUENTA"
         android:textColor="@color/ColorFondo"
         app:cornerRadius="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.741"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.574" />
@@ -240,16 +214,17 @@
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.273"
+        app:layout_constraintHorizontal_bias="0.228"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.688" />
+        app:layout_constraintVertical_bias="0.687" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/barraLateral_ContenededorPrincipal"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="#242629"
+        android:layout_marginStart="50dp"
+        android:background="@drawable/urizar_games_bg"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -283,7 +258,7 @@
                     android:id="@+id/imageView3"
                     android:layout_width="74dp"
                     android:layout_height="70dp"
-                    android:scaleType="centerCrop"
+                    android:scaleType="fitCenter"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -295,50 +270,98 @@
                     android:id="@+id/textView11"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/bebas_neue"
+                    android:letterSpacing="0.1"
                     android:text="URIZAR - GAMES"
+                    android:textColor="@color/ColorFuentes"
+                    android:textSize="28sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView3"
-                    app:layout_constraintVertical_bias="0.347" />
+                    app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout9"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:padding="16dp"
                 android:visibility="visible"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.248">
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout10"
+                    android:layout_width="0dp"
+                    android:layout_height="55dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/sidebar_btn"
+                    android:onClick="sidebar_register"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout7">
+
+                    <ImageView
+                        android:id="@+id/imgBtnCrearCuenta"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:scaleType="fitCenter"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.4"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/register_sidebar" />
+
+                    <TextView
+                        android:id="@+id/tvCrearCuenta"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="CREAR UNA CUENTA"
+                        android:textColor="@color/ColorFuentes"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.087"
+                        app:layout_constraintStart_toEndOf="@+id/imgBtnCrearCuenta"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/constraintLayout5"
                     android:layout_width="0dp"
                     android:layout_height="55dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/sidebar_btn"
+                    android:elevation="10dp"
+                    android:onClick="sidebar_Tienda"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
                     <ImageView
                         android:id="@+id/imgBtnTienda"
-                        android:layout_width="53dp"
-                        android:layout_height="49dp"
-                        android:scaleType="centerCrop"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:scaleType="fitCenter"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.4"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/shopping_cart_sidebar" />
 
                     <TextView
-                        android:id="@+id/textView15"
+                        android:id="@+id/tvTienda"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_medium"
                         android:text="TIENDA"
+                        android:textColor="@color/ColorFuentes"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.08"
@@ -351,26 +374,32 @@
                     android:id="@+id/constraintLayout8"
                     android:layout_width="0dp"
                     android:layout_height="55dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/sidebar_btn"
+                    android:onClick="sidebar_Library"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/constraintLayout5">
 
                     <ImageView
                         android:id="@+id/imgBtnLibreria"
-                        android:layout_width="53dp"
-                        android:layout_height="49dp"
-                        android:scaleType="centerCrop"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:scaleType="fitCenter"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.4"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/save_sidebar" />
 
                     <TextView
-                        android:id="@+id/textView16"
+                        android:id="@+id/tvLibreria"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_medium"
                         android:text="LIBRERIA"
+                        android:textColor="@color/ColorFuentes"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.08"
@@ -382,30 +411,36 @@
                     android:id="@+id/constraintLayout6"
                     android:layout_width="0dp"
                     android:layout_height="55dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/sidebar_btn"
+                    android:onClick="sidebar_User"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/constraintLayout8">
 
                     <ImageView
-                        android:id="@+id/imgBtnInicioSesion"
-                        android:layout_width="53dp"
-                        android:layout_height="49dp"
-                        android:scaleType="centerCrop"
+                        android:id="@+id/imgBtnUsuario"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:scaleType="fitCenter"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.4"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/user_sidebar" />
 
                     <TextView
-                        android:id="@+id/textView17"
+                        android:id="@+id/tvPerfil"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="INICIO DE SESION"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="PERFIL"
+                        android:textColor="@color/ColorFuentes"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.11"
-                        app:layout_constraintStart_toEndOf="@+id/imgBtnInicioSesion"
+                        app:layout_constraintHorizontal_bias="0.08"
+                        app:layout_constraintStart_toEndOf="@+id/imgBtnUsuario"
                         app:layout_constraintTop_toTopOf="parent" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -413,31 +448,36 @@
                     android:id="@+id/constraintLayout7"
                     android:layout_width="0dp"
                     android:layout_height="55dp"
-                    android:layout_marginTop="110dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/sidebar_btn"
+                    android:onClick="sidebar_Login"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/constraintLayout8">
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout6">
 
                     <ImageView
-                        android:id="@+id/imgBtnRegistro"
-                        android:layout_width="53dp"
-                        android:layout_height="49dp"
-                        android:scaleType="centerCrop"
+                        android:id="@+id/imgBtnInicioDeSesion"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:scaleType="fitCenter"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.4"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/enter_sidebar" />
 
                     <TextView
-                        android:id="@+id/textView18"
+                        android:id="@+id/tvInicioDeSesion"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="REGISTRO"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="INICIO DE SESION"
+                        android:textColor="@color/ColorFuentes"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.087"
-                        app:layout_constraintStart_toEndOf="@+id/imgBtnRegistro"
+                        app:layout_constraintStart_toEndOf="@+id/imgBtnInicioDeSesion"
                         app:layout_constraintTop_toTopOf="parent" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -450,14 +490,16 @@
         android:id="@+id/barraLateral_ContenededorPrincipal_B"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="4dp"
-        android:background="@drawable/headergradient"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/headergradient_vertical"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/imageView3"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
         <ImageView
             android:id="@+id/imgBarra"

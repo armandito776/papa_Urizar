@@ -78,7 +78,7 @@
         android:layout_marginStart="56dp"
         android:layout_marginTop="656dp"
         android:backgroundTint="@color/white"
-        android:fontFamily="@font/poppins_thin"
+        android:fontFamily="@font/roboto_medium"
         android:onClick="tercera"
         android:text="Iniciar sesión"
         android:textColor="@color/ColorFondo"
