@@ -32,7 +32,7 @@ public class Biblioteca extends AppCompatActivity {
     ArrayList<ArrayList<String>> game_Tags = new ArrayList<>();
     ArrayList<Integer> background_Drawable = new ArrayList<>();
     String selectQuery_user_selected_game_data, selectQuery_game_tags, selecQuery_game_data, userEmail, userName;
-    Cursor Query_tbl_game_data, Query_tbl_game_tags, Query_tbl_user_selected_game_data;
+    Cursor Query_tbl_game_data, Query_tbl_game_tags, Query_tbl_game_tags2,  Query_tbl_user_selected_game_data, Query_tbl_user_selected_game_data2, Query_tbl_user_selected_game_data3;
     int tags_count = 0;
     int row = 0;
     int tag_index = 0;
@@ -73,8 +73,8 @@ public class Biblioteca extends AppCompatActivity {
         Query_tbl_user_selected_game_data = Bd_selectedGames.rawQuery(selectQuery_user_selected_game_data, null);
 
         if (!Query_tbl_user_selected_game_data.moveToFirst()) {
-            System.out.println("No Games");
-           return;
+            Toast.makeText(this, "No Seleccionaste Ningun Juego", Toast.LENGTH_LONG).show();
+            return;
         }
 
         // GAMES (NAME, IMG, GENRE, ETC...)
@@ -86,6 +86,7 @@ public class Biblioteca extends AppCompatActivity {
             if (!Query_tbl_game_data.moveToFirst()) {
                 return;
             }
+
             System.out.println(Query_tbl_game_data.getString(2));
             img_Games.add(Query_tbl_game_data.getString(1));
             game_Names.add(Query_tbl_game_data.getString(2));
@@ -101,51 +102,69 @@ public class Biblioteca extends AppCompatActivity {
             if (index == Query_tbl_user_selected_game_data.getCount() - 1)
             {
                 Query_tbl_game_data.close();
+                Query_tbl_user_selected_game_data.close();
                 Bd_Games.close();
-                System.out.println("AAAAAAAAA");
             }
 
         }
 
         //GAME TAGS
-        Query_tbl_user_selected_game_data.moveToFirst();
-        for(int index = 0; index < Query_tbl_user_selected_game_data.getCount(); index++)
+        Query_tbl_user_selected_game_data2 = Bd_selectedGames.rawQuery(selectQuery_user_selected_game_data, null);
+        if (!Query_tbl_user_selected_game_data2.moveToFirst())
         {
-            selectQuery_game_tags = "SELECT idTag FROM gameTags WHERE idGame="+"'"+Query_tbl_user_selected_game_data.getString(1)+"'";
+            Toast.makeText(this, "No Seleccionaste Ningun Juego", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        for(int index = 0; index < Query_tbl_user_selected_game_data2.getCount(); index++)
+        {
+            selectQuery_game_tags = "SELECT idTag FROM gameTags WHERE idGame="+"'"+Query_tbl_user_selected_game_data2.getString(1)+"'";
             Query_tbl_game_tags = Bd_gameTags.rawQuery(selectQuery_game_tags, null);
 
             tags_count = tags_count + Query_tbl_game_tags.getCount();
-            Query_tbl_user_selected_game_data.moveToNext();
+            Query_tbl_user_selected_game_data2.moveToNext();
+
+            if (index == Query_tbl_user_selected_game_data2.getCount() - 1)
+            {
+                Query_tbl_user_selected_game_data2.close();
+                Query_tbl_game_tags.close();
+            }
 
         }
 
-        Query_tbl_user_selected_game_data.moveToFirst();
         ArrayList<String> game_Tags_ = new ArrayList<>();
+
+        Query_tbl_user_selected_game_data3 = Bd_selectedGames.rawQuery(selectQuery_user_selected_game_data, null);
+        if (!Query_tbl_user_selected_game_data3.moveToFirst())
+        {
+            Toast.makeText(this, "No Seleccionaste Ningun Juego", Toast.LENGTH_LONG).show();
+            return;
+        }
 
         for(int index = 0; index < tags_count; index++)
         {
-            selectQuery_game_tags = "SELECT Tag, idTag FROM gameTags WHERE idGame="+"'"+Query_tbl_user_selected_game_data.getString(1)+"'";
-            Query_tbl_game_tags = Bd_gameTags.rawQuery(selectQuery_game_tags, null);
+            selectQuery_game_tags = "SELECT Tag, idTag FROM gameTags WHERE idGame="+"'"+Query_tbl_user_selected_game_data3.getString(1)+"'";
+            Query_tbl_game_tags2 = Bd_gameTags.rawQuery(selectQuery_game_tags, null);
 
-            if (tag_index >= Query_tbl_game_tags.getCount()) {
+            if (tag_index >= Query_tbl_game_tags2.getCount()) {
                 row++;
                 tag_index = 0;
-                Query_tbl_game_tags.moveToFirst();
-                Query_tbl_user_selected_game_data.moveToNext();
+                Query_tbl_game_tags2.moveToFirst();
+                Query_tbl_user_selected_game_data3.moveToNext();
             }
 
-            Query_tbl_game_tags.moveToPosition(tag_index);
-            game_Tags_.add(Query_tbl_game_tags.getString(0));
+            Query_tbl_game_tags2.moveToPosition(tag_index);
+            game_Tags_.add(Query_tbl_game_tags2.getString(0));
 
-            if (game_Tags_.size() >= Query_tbl_game_tags.getCount()) {
+            if (game_Tags_.size() >= Query_tbl_game_tags2.getCount()) {
                 game_Tags.add(row, (ArrayList<String>) game_Tags_.clone());
                 game_Tags_.clear();
             }
 
             if (index == tags_count - 1)
             {
-                Query_tbl_user_selected_game_data.close();
-                Query_tbl_game_tags.close();
+                Query_tbl_user_selected_game_data3.close();
+                Query_tbl_game_tags2.close();
                 Bd_Games.close();
                 Bd_selectedGames.close();
                 Bd_gameTags.close();
@@ -157,6 +176,7 @@ public class Biblioteca extends AppCompatActivity {
         LibraryGameAdapter library_adapter = new LibraryGameAdapter(getApplicationContext(), img_Games, game_Names, game_Genres, game_Prices, general_Reviews, all_Reviews, game_Tags, background_Drawable);
         gamesListView.setAdapter(library_adapter);
 
+        //TOTAL OPEREACION
         for (String gamePrice : game_Prices)
         {
             total_juegos = Double.parseDouble(gamePrice) + total_juegos;

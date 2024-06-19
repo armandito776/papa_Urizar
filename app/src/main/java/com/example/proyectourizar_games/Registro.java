@@ -66,7 +66,7 @@ public class Registro extends AppCompatActivity {
 
         if (etUsuario.getText().length() < 5)
         {
-            etPass.setError("El Usuario Debe Tener 5 Caracteres O Mas");
+            etUsuario.setError("El Usuario Debe Tener 5 Caracteres O Mas");
             return;
         }
 

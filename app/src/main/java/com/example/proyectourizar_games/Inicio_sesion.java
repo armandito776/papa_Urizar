@@ -59,7 +59,11 @@ public class Inicio_sesion extends AppCompatActivity {
         AdminOpenHelper Ad = new AdminOpenHelper(this, "Usuarios", null, 1);
         SQLiteDatabase Bd = Ad.getWritableDatabase();
 
-        if (usuario.getText().toString().isEmpty() || contraseña.getText().toString().isEmpty()) { return; }
+        if (usuario.getText().toString().isEmpty() || contraseña.getText().toString().isEmpty()) {
+            usuario.setError("No Dejes Los Campos Vacios");
+            contraseña.setError("No Dejes Los Campos Vacios");
+            return;
+        }
 
         String check_if_user_exists = "SELECT user, pass, email FROM Usuarios WHERE user="
                 + "'" + usuario.getText().toString().trim() +"' AND pass=" + "'" + contraseña.getText().toString() +"'";
