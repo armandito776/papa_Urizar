@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="412dp"
     android:layout_height="915dp"
-    android:background="@color/ColorFondo"
+    android:background="@drawable/background_gradient"
     tools:context=".Bienvenido">
 
     <ImageView
@@ -80,7 +80,7 @@
         android:backgroundTint="@color/white"
         android:fontFamily="@font/roboto_medium"
         android:onClick="tercera"
-        android:text="Iniciar sesión"
+        android:text="Iniciar"
         android:textColor="@color/ColorFondo"
         app:cornerRadius="5dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -90,12 +90,12 @@
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="88dp"
         android:layout_marginTop="608dp"
         android:backgroundTint="@color/Transparente"
         android:fontFamily="@font/poppins_thin"
-        android:text="Acerca de la cuenta Urizar"
+        android:text="Presiona el boton para continuar"
         android:textColor="@color/ColorFuentes"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

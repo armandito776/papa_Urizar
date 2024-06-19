@@ -22,7 +22,6 @@ public class Biblioteca extends AppCompatActivity {
     ConstraintLayout barraLateral_ContenedorPrincipal;
     TextView tvTotal;
     ListView gamesListView;
-    String userEmail, userName;
     boolean isBarActive = false;
     ArrayList<String> img_Games = new ArrayList<>();
     ArrayList<String> game_Names = new ArrayList<>();
@@ -32,14 +31,8 @@ public class Biblioteca extends AppCompatActivity {
     ArrayList<String> all_Reviews = new ArrayList<>();
     ArrayList<ArrayList<String>> game_Tags = new ArrayList<>();
     ArrayList<Integer> background_Drawable = new ArrayList<>();
-
-    String selectQuery_user_selected_game_data;
-    Cursor Query_tbl_user_selected_game_data;
-    String selecQuery_game_data;
-    Cursor Query_tbl_game_data;
-
-    String selectQuery_game_tags;
-    Cursor Query_tbl_game_tags;
+    String selectQuery_user_selected_game_data, selectQuery_game_tags, selecQuery_game_data, userEmail, userName;
+    Cursor Query_tbl_game_data, Query_tbl_game_tags, Query_tbl_user_selected_game_data;
     int tags_count = 0;
     int row = 0;
     int tag_index = 0;
@@ -59,8 +52,8 @@ public class Biblioteca extends AppCompatActivity {
         gamesListView = findViewById(R.id.gamesListView);
         tvTotal = (TextView) findViewById(R.id.tvTotal);
 
-        if (userEmail.isEmpty()) {
-            gamesListView.setVisibility(View.GONE);
+        if (userEmail.isEmpty() || userName.isEmpty()) {
+            gamesListView.setVisibility(View.INVISIBLE);
             Toast.makeText(this, "Debes iniciar sesion para usar tu biblioteca", Toast.LENGTH_LONG).show();
             return;
         }
@@ -87,7 +80,7 @@ public class Biblioteca extends AppCompatActivity {
         // GAMES (NAME, IMG, GENRE, ETC...)
         for(int index = 0; index < Query_tbl_user_selected_game_data.getCount(); index++)
         {
-            selecQuery_game_data = "SELECT * FROM Games WHERE idGame="+ "'"+Query_tbl_user_selected_game_data.getString(1)+"'";
+            selecQuery_game_data = "SELECT * FROM Games WHERE idGame="+ "'"+Query_tbl_user_selected_game_data.getString(1)+"' ORDER BY genreGame";
             Query_tbl_game_data = Bd_Games.rawQuery(selecQuery_game_data,null);
 
             if (!Query_tbl_game_data.moveToFirst()) {
@@ -104,10 +97,17 @@ public class Biblioteca extends AppCompatActivity {
 
             Query_tbl_user_selected_game_data.moveToNext();
             Query_tbl_game_data.moveToNext();
+
+            if (index == Query_tbl_user_selected_game_data.getCount() - 1)
+            {
+                Query_tbl_game_data.close();
+                Bd_Games.close();
+                System.out.println("AAAAAAAAA");
+            }
+
         }
 
         //GAME TAGS
-        Bd_Games.close();
         Query_tbl_user_selected_game_data.moveToFirst();
         for(int index = 0; index < Query_tbl_user_selected_game_data.getCount(); index++)
         {
@@ -140,6 +140,15 @@ public class Biblioteca extends AppCompatActivity {
             if (game_Tags_.size() >= Query_tbl_game_tags.getCount()) {
                 game_Tags.add(row, (ArrayList<String>) game_Tags_.clone());
                 game_Tags_.clear();
+            }
+
+            if (index == tags_count - 1)
+            {
+                Query_tbl_user_selected_game_data.close();
+                Query_tbl_game_tags.close();
+                Bd_Games.close();
+                Bd_selectedGames.close();
+                Bd_gameTags.close();
             }
 
             tag_index++;
@@ -192,6 +201,7 @@ public class Biblioteca extends AppCompatActivity {
     {
         Intent user_ = new Intent(this, Usuario.class);
         user_.putExtra("userEmail", userEmail);
+        user_.putExtra("userName", userName);
         startActivity(user_);
     }
 

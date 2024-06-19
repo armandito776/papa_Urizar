@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="415dp"
     android:layout_height="912dp"
-    android:background="@color/ColorFondo"
+    android:background="@drawable/background_gradient"
     tools:context=".Inicio_sesion">
 
     <TextView

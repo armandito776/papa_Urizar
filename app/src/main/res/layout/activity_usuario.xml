@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/ColorFondo"
+    android:background="@drawable/background_gradient"
     tools:context=".Usuario">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/all_content_user"
-        android:layout_width="362dp"
-        android:layout_height="726dp"
+        android:layout_width="350dp"
+        android:layout_height="0dp"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -37,17 +38,21 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView6">
 
-            <ImageButton
+            <ImageView
                 android:id="@+id/btnUsuario"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginTop="8dp"
                 android:backgroundTint="@color/ColorFondo"
                 android:contentDescription="usuario"
                 android:onClick="changeUsername"
+                android:paddingStart="0dp"
+                android:scaleType="centerCrop"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/usuario" />
+                app:srcCompat="@drawable/user_sidebar" />
 
             <TextView
                 android:id="@+id/textView7"
@@ -86,23 +91,25 @@
                 app:layout_constraintVertical_bias="0.026" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <ImageButton
+        <ImageView
             android:id="@+id/btnContraseña"
-            android:layout_width="83dp"
-            android:layout_height="79dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="32dp"
             android:backgroundTint="@color/ColorFondo"
             android:contentDescription="contraseña"
+            android:onClick="changePassword"
+            android:scaleType="centerCrop"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"
-            app:srcCompat="@drawable/estrella" />
+            app:srcCompat="@drawable/lock" />
 
         <TextView
             android:id="@+id/textView8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
             android:fontFamily="@font/bebas_neue"
             android:text="Contraseña"
             android:textColor="#CAC0C0"
@@ -130,35 +137,39 @@
             app:layout_constraintStart_toEndOf="@+id/btnContraseña"
             app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
-        <ImageButton
+        <ImageView
             android:id="@+id/btnCorreo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="32dp"
             android:backgroundTint="@color/ColorFondo"
             android:contentDescription="correo"
+            android:onClick="changeEmail"
+            android:scaleType="centerCrop"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btnContraseña"
-            app:srcCompat="@drawable/mensaje" />
+            app:srcCompat="@drawable/email" />
 
-        <ImageButton
+        <ImageView
             android:id="@+id/btnEliminar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="32dp"
             android:backgroundTint="@color/ColorFondo"
             android:contentDescription="Boton eliminar cuenta"
+            android:onClick="deleteAcc"
+            android:scaleType="centerCrop"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btnCorreo"
-            app:srcCompat="@drawable/engranaje" />
+            app:srcCompat="@drawable/bin" />
 
         <TextView
             android:id="@+id/textView10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="16dp"
             android:fontFamily="@font/bebas_neue"
             android:text="ELIMINAR CUENTA"
             android:textColor="#CAC0C0"
@@ -194,7 +205,7 @@
             android:id="@+id/textView9"
             android:layout_width="88dp"
             android:layout_height="41dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="16dp"
             android:fontFamily="@font/bebas_neue"
             android:text="Correo"
             android:textColor="#CAC0C0"
@@ -486,8 +497,8 @@
 
         <ImageView
             android:id="@+id/imgBarra"
-            android:layout_width="42dp"
-            android:layout_height="40dp"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:layout_marginTop="8dp"
             android:onClick="crearBarraLateral"
             android:scaleType="centerCrop"

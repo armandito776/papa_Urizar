@@ -40,12 +40,17 @@ public class Registro extends AppCompatActivity {
         startActivity(sig);
     }
 
-    public void insertUser(View view)
-    {
+    public void insertUser(View view) {
         AdminOpenHelper Ad = new AdminOpenHelper(this, "Usuarios", null, 1);
         SQLiteDatabase Bd = Ad.getWritableDatabase();
 
-        if (etUsuario.getText().toString().isEmpty() || etPass.getText().toString().isEmpty() || etEmail.getText().toString().isEmpty()) { return; }
+        if (etUsuario.getText().toString().isEmpty() || etPass.getText().toString().isEmpty() || etEmail.getText().toString().isEmpty()) {
+            etUsuario.setError("Debes llenar todos los campos");
+            etEmail.setError("Debes llenar todos los campos");
+            etPass.setError("Debes llenar todos los campos");
+            return;
+        }
+        String userName = etUsuario.getText().toString().trim();
 
         String email_format = "[a-zA-Z][\\w-]{1,20}@\\w{2,20}\\.\\w{3,3}$";
         if (!etEmail.getText().toString().matches(email_format)) {
@@ -53,24 +58,49 @@ public class Registro extends AppCompatActivity {
             return;
         }
 
-        String check_if_user_exists = "SELECT email FROM Usuarios WHERE email="
-                + "'" + etEmail.getText().toString() +"'";
-
-        try (Cursor Query_check = Bd.rawQuery(check_if_user_exists, null)) {
-            if (Query_check.moveToFirst()) {
-                Toast.makeText(this, "El usuario: " + etUsuario.getText() + " Ya existe", Toast.LENGTH_LONG).show();
-                return;
-            }
+        if (etPass.getText().length() < 5)
+        {
+            etPass.setError("La Contraseña Debe Tener 5 Caracteres O Mas");
+            return;
         }
 
+        if (etUsuario.getText().length() < 5)
+        {
+            etPass.setError("El Usuario Debe Tener 5 Caracteres O Mas");
+            return;
+        }
+
+        String check_if_email_already_exists = "SELECT email FROM Usuarios WHERE email="
+                + "'" +etEmail.getText().toString()+"'";
+
+        String check_if_user_already_exists = "SELECT email FROM Usuarios WHERE user="
+                + "'" +userName+"'";
+
+        Cursor Query_check_email = Bd.rawQuery(check_if_email_already_exists, null);
+        Cursor Query_check_user = Bd.rawQuery(check_if_user_already_exists, null);
+
+        if (Query_check_user.moveToFirst())
+        {
+            etUsuario.setError("El Usuario Ya Existe");
+            return;
+        }
+
+        if (Query_check_email.moveToFirst())
+        {
+            etEmail.setError("El Correo Ya Existe");
+            return;
+        }
+        Query_check_email.close();
+        Query_check_user.close();
+
         ContentValues userData = new ContentValues();
-        userData.put("user", etUsuario.getText().toString().trim());
+        userData.put("user", userName);
         userData.put("pass", etPass.getText().toString());
         userData.put("email", etEmail.getText().toString());
 
         Bd.insert("Usuarios", null, userData);
         Bd.close();
-        Toast.makeText(this, "Usuario: " + etUsuario.getText(), Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Usuario: " + userName, Toast.LENGTH_LONG).show();
     }
 
     public void crearBarraLateral(View view)

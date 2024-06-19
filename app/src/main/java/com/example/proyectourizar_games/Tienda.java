@@ -516,6 +516,7 @@ public class Tienda extends AppCompatActivity {
     {
         Intent user_ = new Intent(this, Usuario.class);
         user_.putExtra("userEmail", userEmail);
+        user_.putExtra("userName", userName);
         startActivity(user_);
     }
 
