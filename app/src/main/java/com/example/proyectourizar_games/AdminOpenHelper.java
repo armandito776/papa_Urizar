@@ -70,3 +70,4 @@ public class AdminOpenHelper extends SQLiteOpenHelper {
 
     }
 }
+// ESTO ES UNA BASE DE DATOS :)
